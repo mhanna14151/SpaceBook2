@@ -5,6 +5,7 @@ import {NasaTestComponent} from "./nasa-test/nasa-test.component";
 
 const APP_ROUTES: Routes = [
   {path: 'nasa', component: NasaTestComponent},
+  {path: '', component: NasaTestComponent},
   // so on
 ];
 
