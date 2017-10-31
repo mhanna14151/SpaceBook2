@@ -50,7 +50,7 @@ app.get('*', function (req, res) {
 });
 
 
-server.listen( port , () => console.log('Running'));
+// server.listen( port , () => console.log('Running'));
 
 // require("./server/app");
 // app.listen(port, ipaddress);
