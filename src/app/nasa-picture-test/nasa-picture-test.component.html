@@ -1,3 +1,12 @@
-<p>
-  nasa-picture-test works!
-</p>
+<h1>NASA Img Library Api Test</h1>
+
+<label>Search Params</label>
+<input [(ngModel)]="searchParams" placeholder="mars" class="form-control"/>
+<button (click)="search(searchParams)" class="btn btn-primary btn-block">Search</button>
+
+<div *ngIf="gotResult">
+<div *ngFor="let item of result.collection.items">
+<p>{{item.data['0'].description}}</p>
+<img src="{{item.links['0'].href}}"/>
+</div>
+</div>
