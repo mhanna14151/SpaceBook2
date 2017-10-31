@@ -7,12 +7,14 @@ import {FormsModule} from '@angular/forms';
 import {Routing} from './app.routing';
 import { NasaTestComponent } from './nasa-test/nasa-test.component';
 import {NasaServiceClient} from './services/nasa.service.client';
+import { NasaPictureTestComponent } from './nasa-picture-test/nasa-picture-test.component';
 
 @NgModule({
   // Declare components here
   declarations: [
     AppComponent,
     NasaTestComponent,
+    NasaPictureTestComponent,
   ],
   imports: [
     BrowserModule,
