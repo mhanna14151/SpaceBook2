@@ -12,5 +12,16 @@ export class NasaServiceClient {
         return response.json();
       });
   }
+
+  searchImg(params: String) {
+    const url = 'https://images-api.nasa.gov/search?q=' + params + '&media_type=image';
+    return this.http.get(url)
+      .map((response: Response) => {
+        return response.json();
+      });
+  }
+
+
+
   constructor(private http: Http) {}
 }
