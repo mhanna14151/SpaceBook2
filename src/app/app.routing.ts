@@ -5,7 +5,7 @@ import {FrontPageComponent} from "./front-page/front-page.component";
 // Import all other components here
 
 const APP_ROUTES: Routes = [
-  {path: 'nasa', component: NasaTestComponent},
+  {path: 'searchAsteroids', component: NasaTestComponent},
   {path: '', component: FrontPageComponent},
   // so on
 ];
