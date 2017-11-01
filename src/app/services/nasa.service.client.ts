@@ -24,7 +24,21 @@ export class NasaServiceClient {
         return response.json();
       });
   }
+  getAPOD() {
+    const url = 'https://api.nasa.gov/planetary/apod?api_key=ZC1UpuaKUg9oUmNxnAcfI1s7KH7lIoN3Av2urJNr';
+    return this.http.get(url)
+      .map((response: Response) => {
+      return response.json();
+    });
+  }
 
+  getAPODPictureOfDate(params: Date) {
+    const url = 'https://api.nasa.gov/planetary/apod?api_key=ZC1UpuaKUg9oUmNxnAcfI1s7KH7lIoN3Av2urJNr';
+    return this.http.get(url)
+      .map((response: Response) => {
+        return response.json();
+      });
+  }
   requestDetails(id: string) {
       const item = this.imgSearch.collection.items[id];
       return item;

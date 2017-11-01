@@ -5,12 +5,16 @@ import {NasaPictureTestComponent} from './nasa-picture-test/nasa-picture-test.co
 
 import {FrontPageComponent} from "./front-page/front-page.component";
 import {NasaPictureDetailsComponent} from './nasa-picture-details/nasa-picture-details.component';
+import {ApodComponent} from "./apod/apod.component";
+import {ApodarchiveComponent} from "./apodarchive/apodarchive.component";
 
 
 const APP_ROUTES: Routes = [
   {path: 'searchAsteroids', component: NasaTestComponent},
   {path: '', component: FrontPageComponent},
   {path: 'nasa-pic', component: NasaPictureTestComponent},
+  {path: 'APOD', component: ApodComponent},
+  {path: 'APOD/Archive', component: ApodarchiveComponent},
   {path: 'nasa-pic/:imgid/details', component: NasaPictureDetailsComponent},
   // so on
 ];
