@@ -11,6 +11,8 @@ import { NasaPictureTestComponent } from './nasa-picture-test/nasa-picture-test.
 import { NasaPictureDetailsComponent } from './nasa-picture-details/nasa-picture-details.component';
 
 import { FrontPageComponent } from './front-page/front-page.component';
+import { ApodComponent } from './apod/apod.component';
+import { ApodarchiveComponent } from './apodarchive/apodarchive.component';
 
 
 @NgModule({
@@ -21,6 +23,8 @@ import { FrontPageComponent } from './front-page/front-page.component';
     NasaPictureTestComponent,
     FrontPageComponent,
     NasaPictureDetailsComponent,
+    ApodComponent,
+    ApodarchiveComponent,
 
   ],
   imports: [
