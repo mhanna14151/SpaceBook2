@@ -15,7 +15,7 @@ export class NasaPictureTestComponent implements OnInit {
       .subscribe((result) => {
         this.result = result;
         this.gotResult = true;
-        console.log(result);
+        // console.log(result);
       });
   }
   constructor(private nasaService: NasaServiceClient) { }
