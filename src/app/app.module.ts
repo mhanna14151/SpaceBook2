@@ -8,6 +8,7 @@ import {Routing} from './app.routing';
 import { NasaTestComponent } from './nasa-test/nasa-test.component';
 import {NasaServiceClient} from './services/nasa.service.client';
 import { NasaPictureTestComponent } from './nasa-picture-test/nasa-picture-test.component';
+import { NasaPictureDetailsComponent } from './nasa-picture-details/nasa-picture-details.component';
 
 @NgModule({
   // Declare components here
@@ -15,6 +16,7 @@ import { NasaPictureTestComponent } from './nasa-picture-test/nasa-picture-test.
     AppComponent,
     NasaTestComponent,
     NasaPictureTestComponent,
+    NasaPictureDetailsComponent,
   ],
   imports: [
     BrowserModule,
