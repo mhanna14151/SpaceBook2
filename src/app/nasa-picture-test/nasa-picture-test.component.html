@@ -5,13 +5,13 @@
 <button (click)="search(searchParams)" class="btn btn-primary btn-block">Search</button>
 
 <div *ngIf="gotResult">
-  <div *ngFor="let item of result.collection.items">
+  <div *ngFor="let item of result.collection.items; let i = index">
 
     <img src="{{item.links['0'].href}}"/>
 
     <p>{{item.data['0'].description}}</p>
 
-    <a routerLink="./details">More Info</a>
+    <a routerLink="./{{i}}/details">More Info</a>
     <br>
     <br>
     <br>
