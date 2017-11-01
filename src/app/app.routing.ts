@@ -11,7 +11,7 @@ const APP_ROUTES: Routes = [
   {path: 'searchAsteroids', component: NasaTestComponent},
   {path: '', component: FrontPageComponent},
   {path: 'nasa-pic', component: NasaPictureTestComponent},
-  {path: 'nasa-pic/details', component: NasaPictureDetailsComponent},
+  {path: 'nasa-pic/:imgid/details', component: NasaPictureDetailsComponent},
   // so on
 ];
 
