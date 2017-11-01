@@ -5,6 +5,8 @@ import {NasaPictureTestComponent} from './nasa-picture-test/nasa-picture-test.co
 
 import {FrontPageComponent} from "./front-page/front-page.component";
 import {NasaPictureDetailsComponent} from './nasa-picture-details/nasa-picture-details.component';
+import {ApodComponent} from "./apod/apod.component";
+import {ApodarchiveComponent} from "./apodarchive/apodarchive.component";
 
 
 const APP_ROUTES: Routes = [
@@ -12,6 +14,8 @@ const APP_ROUTES: Routes = [
   {path: '', component: FrontPageComponent},
   {path: 'nasa-pic', component: NasaPictureTestComponent},
   {path: 'nasa-pic/details', component: NasaPictureDetailsComponent},
+  {path: 'APOD', component: ApodComponent},
+  {path: 'APOD/Archive', component: ApodarchiveComponent},
   // so on
 ];
 
