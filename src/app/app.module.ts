@@ -10,13 +10,18 @@ import {NasaServiceClient} from './services/nasa.service.client';
 import { NasaPictureTestComponent } from './nasa-picture-test/nasa-picture-test.component';
 import { NasaPictureDetailsComponent } from './nasa-picture-details/nasa-picture-details.component';
 
+import { FrontPageComponent } from './front-page/front-page.component';
+
+
 @NgModule({
   // Declare components here
   declarations: [
     AppComponent,
     NasaTestComponent,
     NasaPictureTestComponent,
+    FrontPageComponent,
     NasaPictureDetailsComponent,
+
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,14 @@
-<h1>NASA Api Test</h1>
+<h1>NASA Api Asteroid Test</h1>
 
 <label>Asteroid Id</label>
 <input [(ngModel)]="asteroidId" placeholder="Asteroid Id" class="form-control"/>
-<button (click)="searchAsteroid(asteroidId)" class="btn btn-primary btn-block">Search</button>
+<button (click)="searchAsteroid(asteroidId)" class="btn btn-primary btn-block" type="submit">Search</button>
+
+<div *ngIf="gotResult">
+  <ul>
+    <li>Asteroid Name: {{asteroidName}}</li>
+    <li>Absolute Magnitutde: {{absolute_magnitude_h}}</li>
+    <li><a href="{{nasa_jpl_url}}" target="_blank">Nasa Jet Propulsion Lab Data for: {{asteroidId}}</a></li>
+    <li>Is this a potentially hazardous asteroid? Answer: {{is_potentially_hazardous_asteroid}}</li>
+  </ul>
+</div>

@@ -81,3 +81,21 @@ body .jj-body {
   padding-left: 10px;
 
 }
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+}
+
+@font-face {
+  font-family: 'final_frontier_old_styleRg';
+  src: url('../src/assets/vendors/font/finalold-webfont.woff2') format('woff2'),
+  url('../src/assets/vendors/font/finalold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
