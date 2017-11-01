@@ -8,6 +8,7 @@ import {Routing} from './app.routing';
 import { NasaTestComponent } from './nasa-test/nasa-test.component';
 import {NasaServiceClient} from './services/nasa.service.client';
 import { NasaPictureTestComponent } from './nasa-picture-test/nasa-picture-test.component';
+import { NasaPictureDetailsComponent } from './nasa-picture-details/nasa-picture-details.component';
 
 import { FrontPageComponent } from './front-page/front-page.component';
 
@@ -19,6 +20,8 @@ import { FrontPageComponent } from './front-page/front-page.component';
     NasaTestComponent,
     NasaPictureTestComponent,
     FrontPageComponent,
+    NasaPictureDetailsComponent,
+
   ],
   imports: [
     BrowserModule,
