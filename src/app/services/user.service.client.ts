@@ -35,6 +35,7 @@ export class UserService {
   }
 
   findUserByUsername(username: String) {
+    console.log(username);
     const url = this.baseURL + '/api/user?username=' + username;
     return this.http.get(url)
       .map((response: Response) => {

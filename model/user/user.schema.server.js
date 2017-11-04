@@ -6,8 +6,8 @@ var UserSchema = mongoose.Schema ( {
   lastName: String,
   email: String,
   phone: String,
-  verified: Boolean,
-  DOB: Date
+  verified: Boolean
+  // DOB: Date
 }, {collection: 'user'});
 
 module.exports = UserSchema;

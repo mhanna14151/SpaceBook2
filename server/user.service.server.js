@@ -1,5 +1,4 @@
 module.exports = function (app) {
-
   var userModel = require("../../model/user/user.model.server");
 
   app.get("/api/user/:uid", findUserById);
