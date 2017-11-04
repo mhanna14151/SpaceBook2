@@ -10,23 +10,24 @@ import {Router} from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
   @ViewChild('f') registrationForm: NgForm;
-  username: string;
-  password: string;
-  email: string;
-  firstName: string;
-  lastName: string;
-  errorFlag: boolean;
-  errorMsg: string;
+  username: String;
+  password: String;
+  email: String;
+  firstName: String;
+  lastName: String;
+  errorFlag: Boolean;
+  errorMsg: String;
   user: any;
-  user_id: string;
+  user_id: String;
   constructor(private userService: UserService, private router: Router) {
 
   }
 
   ngOnInit() {
   }
-  register(username: string, password: string, email: string, firstName: string, lastName: string) {
+  register(username: String, password: String, email: String, firstName: String, lastName: String) {
     this.username = username;
+    console.log(this.username);
     this.password = password;
     this.email = email;
     this.firstName = firstName;
