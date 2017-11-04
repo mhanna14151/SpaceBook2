@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {NasaServiceClient} from "../services/nasa.service.client";
+import {NasaServiceClient} from '../services/nasa.service.client';
 
 @Component({
   selector: 'app-nasa-picture-test',
@@ -15,7 +15,7 @@ export class NasaPictureTestComponent implements OnInit {
       .subscribe((result) => {
         this.result = result;
         this.gotResult = true;
-        console.log(result);
+        // console.log(result);
       });
   }
   constructor(private nasaService: NasaServiceClient) { }

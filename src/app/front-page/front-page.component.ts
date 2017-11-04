@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
+
 
 @Component({
   selector: 'app-front-page',
@@ -20,5 +21,11 @@ export class FrontPageComponent implements OnInit {
   goToImageSearch() {
     this.router.navigate(['/nasa-pic']);
   }
+
+  goToAPOD() {
+    this.router.navigate(['/APOD']);
+  }
+
+
 
 }
