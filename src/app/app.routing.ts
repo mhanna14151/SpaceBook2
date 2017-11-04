@@ -1,12 +1,12 @@
 import {Routes, RouterModule} from '@angular/router';
 import {ModuleWithProviders} from '@angular/core';
-import {NasaTestComponent} from './nasa-test/nasa-test.component';
-import {NasaPictureTestComponent} from './nasa-picture-test/nasa-picture-test.component';
+import {NasaTestComponent} from './components/nasa-test/nasa-test.component';
+import {NasaPictureTestComponent} from './components/nasa-picture-test/nasa-picture-test.component';
 
-import {FrontPageComponent} from "./front-page/front-page.component";
-import {NasaPictureDetailsComponent} from './nasa-picture-details/nasa-picture-details.component';
-import {ApodComponent} from "./apod/apod.component";
-import {ApodarchiveComponent} from "./apodarchive/apodarchive.component";
+import {FrontPageComponent} from "./components/front-page/front-page.component";
+import {NasaPictureDetailsComponent} from './components/nasa-picture-details/nasa-picture-details.component';
+import {ApodComponent} from "./components/apod/apod.component";
+import {ApodarchiveComponent} from "./components/apodarchive/apodarchive.component";
 
 
 const APP_ROUTES: Routes = [
