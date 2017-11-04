@@ -31,7 +31,7 @@ export class NasaTestComponent implements OnInit {
   minimum_orbit_intersection: String;
   orbit_determination_date: String;
   orbit_id: String;
-  
+
 
   searchAsteroid(asteroidId: String) {
     this.nasaService.searchAsteroid(asteroidId)
