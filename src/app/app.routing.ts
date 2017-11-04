@@ -3,13 +3,17 @@ import {ModuleWithProviders} from '@angular/core';
 import {NasaTestComponent} from './components/nasa-test/nasa-test.component';
 import {NasaPictureTestComponent} from './components/nasa-picture-test/nasa-picture-test.component';
 
-import {FrontPageComponent} from "./components/front-page/front-page.component";
+import {FrontPageComponent} from "./components/user/front-page/front-page.component";
 import {NasaPictureDetailsComponent} from './components/nasa-picture-details/nasa-picture-details.component';
 import {ApodComponent} from "./components/apod/apod.component";
 import {ApodarchiveComponent} from "./components/apodarchive/apodarchive.component";
+import {RegisterComponent} from "./components/user/register/register.component";
+import {ProfileComponent} from "./components/user/profile/profile.component";
 
 
 const APP_ROUTES: Routes = [
+  {path: 'register', component: RegisterComponent},
+  {path: 'user/:uid', component: ProfileComponent},
   {path: 'searchAsteroids', component: NasaTestComponent},
   {path: '', component: FrontPageComponent},
   {path: 'nasa-pic', component: NasaPictureTestComponent},
