@@ -27,7 +27,6 @@ export class RegisterComponent implements OnInit {
   }
   register(username: String, password: String, email: String, firstName: String, lastName: String) {
     this.username = username;
-    console.log(this.username);
     this.password = password;
     this.email = email;
     this.firstName = firstName;

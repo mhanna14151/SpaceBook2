@@ -31,7 +31,7 @@ export class FrontPageComponent implements OnInit {
         } else {
           this.errorFlag = true;
         }
-    })
+    });
   }
 
   goTofindAsteroid() {
