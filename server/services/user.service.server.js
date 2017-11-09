@@ -21,6 +21,7 @@ module.exports = function (app) {
     if (username && password) {
       userModel.findUserByCredentials(username, password)
         .then(function (user) {
+          console.log('IN SERVER.JS ', user);
           res.json(user);
         });
       return;

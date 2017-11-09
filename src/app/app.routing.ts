@@ -16,6 +16,7 @@ const APP_ROUTES: Routes = [
   {path: 'user/:uid', component: ProfileComponent},
   {path: 'searchAsteroids', component: NasaTestComponent},
   {path: '', component: FrontPageComponent},
+  {path: 'login', component: FrontPageComponent},
   {path: 'nasa-pic', component: NasaPictureTestComponent},
   {path: 'APOD', component: ApodComponent},
   {path: 'APOD/Archive', component: ApodarchiveComponent},

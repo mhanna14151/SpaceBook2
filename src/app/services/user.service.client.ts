@@ -44,6 +44,7 @@ export class UserService {
   }
 
   findUserByCredentials(username: String, password: String) {
+    console.log('IN USER SERVICE TS ', username, password);
     const url = this.baseURL + '/api/user?username=' + username + '&password=' + password;
     return this.http.get(url)
       .map((response: Response) => {
