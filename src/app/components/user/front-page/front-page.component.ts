@@ -22,14 +22,11 @@ export class FrontPageComponent implements OnInit {
     this.errorFlag = false;
   }
   login(username: String, password: String) {
-    console.log(username);
-    console.log(password);
     this.username = username;
     this.password = password;
     this.userService.findUserByCredentials(this.username, this.password)
       .subscribe( (user: any) => {
         if (user) {
-          console.log('IN FRONT PAGE', user);
           this.router.navigate(['user/', user._id]);
         } else {
           this.errorFlag = true;
