@@ -13,6 +13,7 @@ import { NasaPictureDetailsComponent } from './nasa-picture-details/nasa-picture
 import { FrontPageComponent } from './front-page/front-page.component';
 import { ApodComponent } from './apod/apod.component';
 import { ApodarchiveComponent } from './apodarchive/apodarchive.component';
+import { SpaceBannerDefaultComponent } from './space-banner-default/space-banner-default.component';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { ApodarchiveComponent } from './apodarchive/apodarchive.component';
     NasaPictureDetailsComponent,
     ApodComponent,
     ApodarchiveComponent,
+    SpaceBannerDefaultComponent,
 
   ],
   imports: [

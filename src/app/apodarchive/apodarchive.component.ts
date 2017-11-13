@@ -17,7 +17,8 @@ export class ApodarchiveComponent implements OnInit {
   result3: Object;
   result4: Object;
 
-  constructor(private router: Router, private nasaService: NasaServiceClient) { }
+  constructor(private router: Router, private nasaService: NasaServiceClient) {
+  }
 
   ngOnInit() {
     this.nasaService.getAPOD()
@@ -40,3 +41,5 @@ export class ApodarchiveComponent implements OnInit {
   goToAPODArchive() {
     this.router.navigate(['/APOD/Archive']);
   }
+
+}
