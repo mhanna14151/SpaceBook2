@@ -2,6 +2,10 @@
 <body xmlns="http://www.w3.org/1999/html">
 <div class="jj-bg">
   <div class="jj-font">
+      <div *ngIf="errorFlag"
+           class="alert alert-danger">
+        {{errorMsg}}
+      </div>
     <h1 class="jj-h1">
       SpaceBook
     </h1>

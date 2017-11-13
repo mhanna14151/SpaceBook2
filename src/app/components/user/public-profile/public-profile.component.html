@@ -1,0 +1,13 @@
+<div class="pull-left">
+  <button class="jj-button-profile" (click)="editProfile()">
+  <img class="jj-img-padding" src="{{picture}}">
+  <div class="jj-container">
+    <h4><b>{{firstName}} {{lastName}}</b></h4>
+  </div>
+  </button>
+</div>
+<button class="btn btn-warning btn-block jj-button-hover"
+        aria-pressed="true"
+        [routerLink]="['/login']">
+  Logout
+</button>

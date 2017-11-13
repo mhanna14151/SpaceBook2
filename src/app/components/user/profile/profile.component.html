@@ -11,7 +11,7 @@
     </p>
 
     <p class="navbar-text pull-right">
-      <button (click)="goToProfile(username, email, firstName, lastName)"  class="navbar-link jj-button">
+      <button (click)="goToProfile(username, email, firstName, lastName, phone, DOB)" class="navbar-link jj-button">
         <span class="jj-button-text glyphicon glyphicon-ok"></span>
       </button>
     </p>
@@ -63,18 +63,17 @@
              placeholder="Last Name"
              class="form-control"/>
     </div>
-  </form>
 
-  <button (click)="websites()"
-          class="btn btn-primary btn-block jj-button-hover"
-          aria-pressed="true">
-    Websites
-  </button>
-  <button class="btn btn-warning btn-block jj-button-hover"
-          aria-pressed="true"
-          [routerLink]="['/login']">
-    Logout
-  </button>
+    <form ngNoForm action="{{baseURL}}/api/upload" method="post" enctype="multipart/form-data"
+          class="jj-form container-fluid">
+      <input name="myFile" type="file" class="form-control"/>
+      <input name="userId" value="{{userId}}" style="display: none"/>
+      <button (click)="commit(picture)"
+              type="submit" class="btn btn-block btn-primary jj-button-hover" aria-pressed="true">Upload Profile Picture
+      </button>
+      <br/>
+    </form>
+  </form>
   <button class="btn btn-danger btn-block jj-button-hover"
           aria-pressed="true"
           (click)="deleteAccount(userId)">

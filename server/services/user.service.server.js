@@ -1,11 +1,16 @@
 module.exports = function (app) {
   var userModel = require("../../model/user/user.model.server");
 
+  var multer = require('multer');
+  var upload = multer({ dest: __dirname + '/../../dist/assets/uploads'});
+
   app.get("/api/user/:uid", findUserById);
   app.get("/api/user", findUsers);
   app.post("/api/user", createUser);
   app.put("/api/user/:uid", updateUser);
   app.delete("/api/user/:uid", deleteUser);
+  app.post("/api/upload", upload.single('myFile'), uploadProfilePicture);
+
 
   function findUserById(req, res) {
     var userId = req.params["uid"];
@@ -57,11 +62,40 @@ module.exports = function (app) {
 
   function deleteUser(req, res) {
     var userId = req.params['uid'];
-    var user = users.find(function (user) {
-      return userId === user._id
-    });
-    var i = users.indexOf(user);
-    users.splice(i, 1);
-    res.json(users);
+    userModel
+      .deleteUser(userId)
+      .then(function (users) {
+        res.json(users);
+      });
+  }
+
+  function uploadProfilePicture(req, res) {
+    var myFile = req.file;
+    var userId = req.body.userId;
+
+    console.log('IN UPLOAD PROFILE IN SERVER.SERVICE');
+
+    var originalname = myFile.originalname;
+    var filename = myFile.filename;
+    var path = myFile.path;
+    var destination = myFile.destination;
+    var size = myFile.size;
+    var mimetype = myFile.mimetype;
+    var user1 = null;
+    userModel
+      .findUserById(userId)
+      .then(function (user) {
+        user1 = user;
+        user['picture'] = '/assets/uploads/' + filename;
+        userModel
+          .updateUser(userId, user1)
+          .then(function (usr) {
+            usr.save();
+          });
+        var callbackUrl =  '/user/' + userId;
+        res.redirect(callbackUrl);
+
+      });
+
   }
 };

@@ -9,7 +9,7 @@ import {ApodComponent} from "./components/apod/apod.component";
 import {ApodarchiveComponent} from "./components/apodarchive/apodarchive.component";
 import {RegisterComponent} from "./components/user/register/register.component";
 import {ProfileComponent} from "./components/user/profile/profile.component";
-import {PublicProfileComponent} from "./components/public-profile/public-profile.component";
+import {PublicProfileComponent} from "./components/user/public-profile/public-profile.component";
 
 
 const APP_ROUTES: Routes = [
