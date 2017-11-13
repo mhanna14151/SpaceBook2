@@ -18,6 +18,7 @@ import { ProfileComponent } from './components/user/profile/profile.component';
 import {ApodComponent} from './components/apod/apod.component';
 import {FrontPageComponent} from './components/user/front-page/front-page.component';
 import {ApodarchiveComponent} from './components/apodarchive/apodarchive.component';
+import { PostComponent } from './components/post/post.component';
 
 @NgModule({
   // Declare components here
@@ -32,6 +33,7 @@ import {ApodarchiveComponent} from './components/apodarchive/apodarchive.compone
     SpaceBannerDefaultComponent,
     RegisterComponent,
     ProfileComponent,
+    PostComponent,
 
   ],
   imports: [

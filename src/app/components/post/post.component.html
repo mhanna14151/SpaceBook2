@@ -1,0 +1,15 @@
+<app-space-banner-default></app-space-banner-default>
+
+<div *ngFor="let post of posts" class = 'borderless'>
+  <h5 class = "jj-font">{{post.poster}}</h5>
+  <div>{{text}}</div>
+  <div *ngFor="let object of objects">
+    <a (click)="navigateToObject()">{{object.name}}</a>
+  </div>
+  <div *ngFor = "let image of post.images">
+    <img src="{{image.url}}"/>
+  </div>
+  {{post.date}}
+  {{post.likeAmount}}
+  <button class = "btn-danger" (click)="removeMyTag(ID)"></button>
+</div>
