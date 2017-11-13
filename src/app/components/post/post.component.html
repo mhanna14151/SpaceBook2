@@ -1,0 +1,15 @@
+<label>{{poster.name}}</label>
+<div>{{text}}</div>
+<label>Images</label>
+<div *ngFor = "let image of images">
+  <img src="{{image.url}}" width = "33%"/>
+</div>
+<label>Date</label>
+<div>{{date}}</div>
+<div class = 'jj-font'> Current Altitude: {{likeAmount}} kilometers
+  <button class = "btn btn-primary" (click)="likeThisPost()">Give More Rocket Fuel</button></div>
+<label>Tags</label>
+<div *ngFor = "let tag of tags">
+  <a>{{tag.name}}</a>
+</div>
+<button class = "btn btn-danger" (click)="removeMyTag()">Remove My Tag</button>

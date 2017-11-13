@@ -9,15 +9,18 @@
   overflow: hidden;
 }
 
+
 /* Style the links inside the navigation bar */
 .SpaceNav a {
   float: left;
   display: block;
-  color: black;
+  color: white;
+  font-family: final_frontier_old_styleRg;
   text-align: center;
+  text-color: white;
   padding: 14px 16px;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 28px;
 }
 
 /* Change the color of links on hover */
