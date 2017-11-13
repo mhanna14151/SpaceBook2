@@ -62,6 +62,23 @@
              type="text"
              placeholder="Last Name"
              class="form-control"/>
+      <label for="phone">
+        Phone Number
+      </label>
+      <input [(ngModel)]="phone"
+             name="phone"
+             id="phone"
+             type="tel"
+             placeholder="xxx-xxx-xxxx"
+             class="form-control"/>
+      <label for="DOB">
+        Birthday
+      </label>
+      <input [(ngModel)]="DOB"
+             name="DOB"
+             id="DOB"
+             type="date"
+             class="form-control"/>
     </div>
 
     <form ngNoForm action="{{baseURL}}/api/upload" method="post" enctype="multipart/form-data"
