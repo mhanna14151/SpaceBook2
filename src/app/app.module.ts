@@ -17,6 +17,7 @@ import {UserService} from './services/user.service.client';
 import {NasaServiceClient} from './services/nasa.service.client';
 import { RegisterComponent } from './components/user/register/register.component';
 import { ProfileComponent } from './components/user/profile/profile.component';
+import { PublicProfileComponent } from './components/public-profile/public-profile.component';
 
 @NgModule({
   // Declare components here
@@ -30,6 +31,7 @@ import { ProfileComponent } from './components/user/profile/profile.component';
     ApodarchiveComponent,
     RegisterComponent,
     ProfileComponent,
+    PublicProfileComponent,
 
   ],
   imports: [
