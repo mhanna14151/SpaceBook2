@@ -11,7 +11,7 @@
     </p>
 
     <p class="navbar-text pull-right">
-      <button (click)="goToProfile(username, email, firstName, lastName, phone, DOB)" class="navbar-link jj-button">
+      <button (click)="goToProfile(username, email, firstName, lastName, phone, DOB)" type="submit" class="navbar-link jj-button">
         <span class="jj-button-text glyphicon glyphicon-ok"></span>
       </button>
     </p>
@@ -69,7 +69,7 @@
       <input name="myFile" type="file" class="form-control"/>
       <input name="userId" value="{{userId}}" style="display: none"/>
       <button (click)="commit(picture)"
-              type="submit" class="btn btn-block btn-primary jj-button-hover" aria-pressed="true">Upload Profile Picture
+              type="submit" class="btn btn-block btn-primary jj-button-hover" aria-pressed="true">Save Changes
       </button>
       <br/>
     </form>

@@ -90,11 +90,11 @@ module.exports = function (app) {
         userModel
           .updateUser(userId, user1)
           .then(function (usr) {
+            console.log(usr);
+            var callbackUrl =  '/user/' + userId;
             usr.save();
+            res.redirect(callbackUrl);
           });
-        var callbackUrl =  '/user/' + userId;
-        res.redirect(callbackUrl);
-
       });
 
   }
