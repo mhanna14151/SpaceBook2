@@ -20,6 +20,7 @@ import {ApodComponent} from './components/apod/apod.component';
 import {FrontPageComponent} from './components/user/front-page/front-page.component';
 import {ApodarchiveComponent} from './components/apodarchive/apodarchive.component';
 import { PostComponent } from './components/post/post.component';
+import { PostListComponent } from './components/post-list/post-list.component';
 
 @NgModule({
   // Declare components here
@@ -35,6 +36,7 @@ import { PostComponent } from './components/post/post.component';
     RegisterComponent,
     ProfileComponent,
     PostComponent,
+    PostListComponent,
 
   ],
   imports: [
