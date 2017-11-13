@@ -21,6 +21,8 @@ import { PublicProfileComponent } from './components/user/public-profile/public-
 import {ApodComponent} from './components/apod/apod.component';
 import {FrontPageComponent} from './components/user/front-page/front-page.component';
 import {ApodarchiveComponent} from './components/apodarchive/apodarchive.component';
+import { PostComponent } from './components/post/post.component';
+import { PostListComponent } from './components/post-list/post-list.component';
 
 
 @NgModule({
@@ -37,6 +39,8 @@ import {ApodarchiveComponent} from './components/apodarchive/apodarchive.compone
     RegisterComponent,
     ProfileComponent,
     PublicProfileComponent,
+    PostComponent,
+    PostListComponent,
 
   ],
   imports: [

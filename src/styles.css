@@ -82,6 +82,11 @@ body .jj-body {
 
 }
 
+.jj-font {
+  font-family: final_frontier_old_styleRg;
+}
+
+
 html {
   height: 100%;
   width: 100%;
