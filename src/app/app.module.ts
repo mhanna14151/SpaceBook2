@@ -12,6 +12,7 @@ import { NasaPictureDetailsComponent } from './components/nasa-picture-details/n
 import { SpaceBannerDefaultComponent } from './space-banner-default/space-banner-default.component';
 
 import {UserService} from './services/user.service.client';
+import {PostService} from './services/post.service.client';
 import {NasaServiceClient} from './services/nasa.service.client';
 import { RegisterComponent } from './components/user/register/register.component';
 import { ProfileComponent } from './components/user/profile/profile.component';
@@ -43,7 +44,7 @@ import { PostComponent } from './components/post/post.component';
     Routing
   ],
   // Client Side services here
-  providers: [NasaServiceClient, UserService],
+  providers: [NasaServiceClient, UserService, PostService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
