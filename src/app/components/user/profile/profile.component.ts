@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {UserService} from '../../../services/user.service.client';
 import {ActivatedRoute, Router} from '@angular/router';
 import {NgForm} from '@angular/forms';
+import {environment} from "../../../../environments/environment";
 
 @Component({
   selector: 'app-profile',
@@ -17,6 +18,11 @@ export class ProfileComponent implements OnInit {
   firstName: string;
   lastName: string;
   email: string;
+  picture: String;
+  phone: String;
+  DOB: Date;
+  baseURL = environment.baseUrl;
+  check: Date;
 
   constructor(private userService: UserService, private activatedRoute: ActivatedRoute, private router: Router) {
   }
@@ -36,17 +42,19 @@ export class ProfileComponent implements OnInit {
         this.password = this.user['password'];
         this.lastName = this.user['lastName'];
         this.email = this.user['email'];
+        this.picture = this.user['picture'];
+        this.DOB = this.user['DOB'];
+        this.check = new Date();
+        this.phone = this.user['phone'];
       });
   }
 
-  websites() {
-    this.router.navigate(['user/', this.userId, 'website']);
-  }
-
-  goToProfile(uname, email, fname, lname) {
-    const user = {username: uname, email: email, firstName: fname, lastName: lname};
+  goToProfile(uname, email, fname, lname, phone, DOB) {
+    console.log('USERNAME IN EDIT ', uname);
+    const user = {username: uname, email: email, firstName: fname, lastName: lname, phone: phone, DOB: DOB};
     this.userService.updateUser(this.userId, user)
       .subscribe((user1) => {
+        this.router.navigate(['user/' + this.userId]);
       });
   }
 
@@ -59,5 +67,15 @@ export class ProfileComponent implements OnInit {
       .subscribe((users) => {
         this.router.navigate(['/login']);
       });
+  }
+
+  commit(pic) {
+    const user = {_id: this.userId, password: this.password, username: this.username, firstName: this.firstName,
+      lastName: this.lastName, email: this.email, picture: pic};
+    this.userService.updateUser(this.userId, user)
+      .subscribe((usr: any) => {
+        this.user = usr;
+      });
+
   }
 }
