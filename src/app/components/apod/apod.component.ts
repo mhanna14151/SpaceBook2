@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
-import {NasaServiceClient} from '../services/nasa.service.client';
+import {NasaServiceClient} from '../../services/nasa.service.client';
 
 
 @Component({

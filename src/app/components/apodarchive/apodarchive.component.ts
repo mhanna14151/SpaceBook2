@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {NasaServiceClient} from '../services/nasa.service.client';
+import {NasaServiceClient} from '../../services/nasa.service.client';
 import {Router} from '@angular/router';
 
 @Component({
@@ -41,5 +41,4 @@ export class ApodarchiveComponent implements OnInit {
   goToAPODArchive() {
     this.router.navigate(['/APOD/Archive']);
   }
-
 }
