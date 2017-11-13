@@ -9,14 +9,15 @@ import { NasaTestComponent } from './components/nasa-test/nasa-test.component';
 import { NasaPictureTestComponent } from './components/nasa-picture-test/nasa-picture-test.component';
 import { NasaPictureDetailsComponent } from './components/nasa-picture-details/nasa-picture-details.component';
 
-import { FrontPageComponent } from './components/user/front-page/front-page.component';
-import { ApodComponent } from './components/apod/apod.component';
-import { ApodarchiveComponent } from './components/apodarchive/apodarchive.component';
+import { SpaceBannerDefaultComponent } from './space-banner-default/space-banner-default.component';
 
 import {UserService} from './services/user.service.client';
 import {NasaServiceClient} from './services/nasa.service.client';
 import { RegisterComponent } from './components/user/register/register.component';
 import { ProfileComponent } from './components/user/profile/profile.component';
+import {ApodComponent} from './components/apod/apod.component';
+import {FrontPageComponent} from './components/user/front-page/front-page.component';
+import {ApodarchiveComponent} from './components/apodarchive/apodarchive.component';
 
 @NgModule({
   // Declare components here
@@ -28,6 +29,7 @@ import { ProfileComponent } from './components/user/profile/profile.component';
     NasaPictureDetailsComponent,
     ApodComponent,
     ApodarchiveComponent,
+    SpaceBannerDefaultComponent,
     RegisterComponent,
     ProfileComponent,
 
