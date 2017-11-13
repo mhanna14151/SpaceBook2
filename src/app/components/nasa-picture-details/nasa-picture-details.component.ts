@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {NasaServiceClient} from '../services/nasa.service.client';
+import {NasaServiceClient} from '../../services/nasa.service.client';
 import {ActivatedRoute} from '@angular/router';
 
 @Component({

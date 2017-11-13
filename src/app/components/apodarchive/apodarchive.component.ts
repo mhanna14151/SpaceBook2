@@ -1,19 +1,24 @@
 import { Component, OnInit } from '@angular/core';
+import {NasaServiceClient} from '../../services/nasa.service.client';
 import {Router} from '@angular/router';
-import {NasaServiceClient} from '../services/nasa.service.client';
-
 
 @Component({
-  selector: 'app-apod',
-  templateUrl: './apod.component.html',
-  styleUrls: ['./apod.component.css']
+  selector: 'app-apodarchive',
+  templateUrl: './apodarchive.component.html',
+  styleUrls: ['./apodarchive.component.css']
 })
-export class ApodComponent implements OnInit {
+export class ApodarchiveComponent implements OnInit {
   result: Object;
   gotResult: Boolean;
   url: URL;
+  date: Date;
+  result1: Object;
+  result2: Object;
+  result3: Object;
+  result4: Object;
 
-  constructor(private router: Router, private nasaService: NasaServiceClient) { }
+  constructor(private router: Router, private nasaService: NasaServiceClient) {
+  }
 
   ngOnInit() {
     this.nasaService.getAPOD()
@@ -36,6 +41,4 @@ export class ApodComponent implements OnInit {
   goToAPODArchive() {
     this.router.navigate(['/APOD/Archive']);
   }
-
-
 }

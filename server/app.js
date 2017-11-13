@@ -7,5 +7,7 @@
 // params is part of the request. any variables in the path will be available as a a map in params
 
 module.exports = function (app) {
+  db = require("../model/model.server");
+  require("./services/user.service.server")(app);
 };
 
