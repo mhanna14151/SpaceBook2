@@ -5,15 +5,18 @@ import { AppComponent } from './app.component';
 import {HttpModule} from '@angular/http';
 import {FormsModule} from '@angular/forms';
 import {Routing} from './app.routing';
-import { NasaTestComponent } from './nasa-test/nasa-test.component';
+import { NasaTestComponent } from './components/nasa-test/nasa-test.component';
+import { NasaPictureTestComponent } from './components/nasa-picture-test/nasa-picture-test.component';
+import { NasaPictureDetailsComponent } from './components/nasa-picture-details/nasa-picture-details.component';
+
+import { FrontPageComponent } from './components/user/front-page/front-page.component';
+import { ApodComponent } from './components/apod/apod.component';
+import { ApodarchiveComponent } from './components/apodarchive/apodarchive.component';
+
+import {UserService} from './services/user.service.client';
 import {NasaServiceClient} from './services/nasa.service.client';
-import { NasaPictureTestComponent } from './nasa-picture-test/nasa-picture-test.component';
-import { NasaPictureDetailsComponent } from './nasa-picture-details/nasa-picture-details.component';
-
-import { FrontPageComponent } from './front-page/front-page.component';
-import { ApodComponent } from './apod/apod.component';
-import { ApodarchiveComponent } from './apodarchive/apodarchive.component';
-
+import { RegisterComponent } from './components/user/register/register.component';
+import { ProfileComponent } from './components/user/profile/profile.component';
 
 @NgModule({
   // Declare components here
@@ -25,6 +28,8 @@ import { ApodarchiveComponent } from './apodarchive/apodarchive.component';
     NasaPictureDetailsComponent,
     ApodComponent,
     ApodarchiveComponent,
+    RegisterComponent,
+    ProfileComponent,
 
   ],
   imports: [
@@ -34,7 +39,7 @@ import { ApodarchiveComponent } from './apodarchive/apodarchive.component';
     Routing
   ],
   // Client Side services here
-  providers: [NasaServiceClient],
+  providers: [NasaServiceClient, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
