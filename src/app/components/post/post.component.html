@@ -1,12 +1,15 @@
-<h5 class = "jj-font">{{post.poster}}</h5>
+<label>{{poster.name}}</label>
 <div>{{text}}</div>
-<div *ngFor="let object of objects">
-  <a (click)="navigateToObject()">{{object.name}}</a>
+<label>Images</label>
+<div *ngFor = "let image of images">
+  <img src="{{image.url}}" width = "33%"/>
 </div>
-<div *ngFor = "let image of post.images">
-  <img src="{{image.url}}"/>
+<label>Date</label>
+<div>{{date}}</div>
+<div class = 'jj-font'> Current Altitude: {{likeAmount}} kilometers
+  <button class = "btn btn-primary" (click)="likeThisPost()">Give More Rocket Fuel</button></div>
+<label>Tags</label>
+<div *ngFor = "let tag of tags">
+  <a>{{tag.name}}</a>
 </div>
-{{post.date}}
-<div class = 'jj-font'>RocketShips {{post.likeAmount}}
-<button class = "btn btn-primary btn-block" (click)="likeThisPost()"></button></div>
-<button class = "btn-danger" (click)="removeMyTag()"></button>
+<button class = "btn btn-danger" (click)="removeMyTag()">Remove My Tag</button>

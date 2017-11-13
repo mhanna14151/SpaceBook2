@@ -14,36 +14,52 @@ export class PostComponent implements OnInit {
   @Input()
   ID: String;
   post: any;
-  poster: String;
+  poster: any;
   text: String;
   images: any[];
   tags: any[];
   date: Date;
   likeAmount: Number;
   userId: String;
+  testPost: any;
+  image1: any; // here for testing
+  image2: any; // here for testing
+  tag1: any; // here for testing
+  tag2: any; // here for testing
 
   constructor(private postService: PostService, private userService: UserService,
               private route: ActivatedRoute,
               private router: Router) { }
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
-      this.userId = params['uid'];
-    });
+    // this.route.params.subscribe(params => {
+    //   this.userId = params['uid'];
+    // });
+    this.ID = null; // remove this line post (as in after) testing phase is done and we have implemented making posts.
     if (this.ID === null) {
-        this.ID = '0';
-      } else {
-        this.postService.findPostbyId(this.ID)
-          .subscribe((post) => {
-            this.post = post;
-            this.poster = post.username;
-            this.images = post.images;
-            this.text = post.text;
-            this.tags = post.tags;
-            this.date = post.date;
-            this.likeAmount = post.likeAmount;
-          });
-      }
+      this.poster = {name: 'Alice'};
+      this.image1 = {name: 'Image 1', url: 'https://res.cloudinary.com/demo/image/upload/sample.jpg'};
+      this.image2 = {name: 'Image 2', url: 'https://i.ytimg.com/vi/lt0WQ8JzLz4/maxresdefault.jpg'};
+      this.tag1 = {name: 'SpaceX'};
+      this.tag2 = {name: 'NASA'};
+      this.ID = '0';
+      this.text = 'This is a sample post, where you can see that this functionality works';
+      this.images = [this.image1, this.image2];
+      this.likeAmount = 3;
+      this.date = new Date;
+      this.tags = [this.tag1, this.tag2, {name: 'Alice'}, {name: 'Frankenstein'}];
+    } else {
+      this.postService.findPostbyId(this.ID)
+        .subscribe((post) => {
+          this.post = post;
+          this.poster = post.username;
+          this.images = post.images;
+          this.text = post.text;
+          this.tags = post.tags;
+          this.date = post.date;
+          this.likeAmount = post.likeAmount;
+        });
+    }
   }
 
   likeThisPost() {
@@ -51,7 +67,7 @@ export class PostComponent implements OnInit {
     this.post.likeAmount = this.likeAmount;
     this.postService.updatePost(this.ID, this.post)
       .subscribe((post) => {
-      this.post = post;
+        this.post = post;
       });
   }
 

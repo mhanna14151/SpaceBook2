@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {PostService} from '../../services/post.service.client';
 import {UserService} from '../../services/user.service.client';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -10,49 +10,36 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 
 export class PostListComponent implements OnInit {
-  ID: any;
-  queryID: any;
-  posts: any[];
-  tags: any[];
+
+  @Input()
+  posts: any;
+  ID: String;
+
 
   constructor(private postService: PostService, private userService: UserService,
               private route: ActivatedRoute,
-              private router: Router) { }
-
-  ngOnInit() {
-    this.queryID = null;
-    this.route.params.subscribe(params => {
-      this.ID = params['uid'];
-      this.queryID = params['qid'];
-      // tags = params[];
-    });
-    if (this.queryID === null) {
-      this.postService.findPostsbyTag(this.ID)
-        .subscribe((posts) => {
-          this.posts = posts;
-        });
-      // } else {
-      //   this.postService.findPostsbyTag(queries)
-      //     .subscribe((posts) => {
-      //       this.posts = posts;
-      //     });
-      // }
-    }
+              private router: Router) {
   }
 
-
-findPostsByTag(ID) {
-  this.postService.findPostsbyTag(this.ID)
-    .subscribe((posts) => {
-      this.posts = posts;
-    });
+  ngOnInit() {
+    this.postService.findPostsbyTag(this.ID)
+      .subscribe((posts) => {
+        this.posts = posts;
+      });
+  }
 }
 
-findPostsByTags(any) {
-  this.postService.findPostsbyTags(any)
-    .subscribe((posts) => {
-      this.posts = posts;
-    });
-}
-
-}
+//
+// findPostsByTag(ID) {
+//   this.postService.findPostsbyTag(this.ID)
+//     .subscribe((posts) => {
+//       this.posts = posts;
+//     });
+// }
+//
+// findPostsByTags(any) {
+//   this.postService.findPostsbyTags(any)
+//     .subscribe((posts) => {
+//       this.posts = posts;
+//     });
+// }
