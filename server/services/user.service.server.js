@@ -1,15 +1,15 @@
 module.exports = function (app) {
   var userModel = require("../../model/user/user.model.server");
 
-  var multer = require('multer');
-  var upload = multer({ dest: __dirname + '/../../dist/assets/uploads'});
+  // var multer = require('multer');
+  // var upload = multer({ dest: __dirname + '/../../dist/assets/uploads'});
 
   app.get("/api/user/:uid", findUserById);
   app.get("/api/user", findUsers);
   app.post("/api/user", createUser);
   app.put("/api/user/:uid", updateUser);
   app.delete("/api/user/:uid", deleteUser);
-  app.post("/api/upload", upload.single('myFile'), uploadProfilePicture);
+  // app.post("/api/upload", upload.single('myFile'), uploadProfilePicture);
 
 
   function findUserById(req, res) {

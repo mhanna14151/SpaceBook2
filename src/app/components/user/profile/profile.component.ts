@@ -50,7 +50,6 @@ export class ProfileComponent implements OnInit {
   }
 
   goToProfile(uname, email, fname, lname, phone, DOB) {
-    console.log('USERNAME IN EDIT ', uname);
     const user = {username: uname, email: email, firstName: fname, lastName: lname, phone: phone, DOB: DOB};
     this.userService.updateUser(this.userId, user)
       .subscribe((user1) => {

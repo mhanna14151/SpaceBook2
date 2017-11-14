@@ -14,6 +14,8 @@ export class PublicProfileComponent implements OnInit {
   firstName: String;
   lastName: String;
   picture: String;
+  follows: any [];
+
 
   ngOnInit() {
     this.activatedRoute.params
@@ -28,10 +30,20 @@ export class PublicProfileComponent implements OnInit {
         this.firstName = user['firstName'];
         this.lastName = user['lastName'];
         this.picture = user['picture'];
+        for (var i = 0; i < user['follows'].length; i++) {
+          this.userService.findUserById(user['follows'][i])
+            .subscribe((user: any) => {
+              this.follows.push(user);
+            });
+        }
       });
   }
   editProfile() {
     this.router.navigate(['user/' + this.userId + '/edit'])
+  }
+
+  goToUserProfile(userId) {
+    this.router.navigate(['user/' + userId]);
   }
 
 }
