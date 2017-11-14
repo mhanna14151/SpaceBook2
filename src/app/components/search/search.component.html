@@ -26,9 +26,29 @@
 <br>
 <br>
 <br>
+<div *ngIf="peopleReady">
 <br>
 <p>
-  Search Results:
+  People Results:
   <br>
-{{searchResultString}}
 </p>
+  <div *ngFor="let person of userResult">
+    <app-search-profile [user]="person"></app-search-profile>
+  </div>
+</div>
+<div *ngIf="postReady">
+<p>
+  Post Results: (not working yet)
+  <br>
+</p>
+</div>
+<div *ngIf="nasaReady">
+<p>
+  Nasa Results:
+  <br>
+</p>
+  <div *ngFor="let object of nasaResult">
+    <app-search-nasa [nasaObject]="object"></app-search-nasa>
+  </div>
+
+</div>

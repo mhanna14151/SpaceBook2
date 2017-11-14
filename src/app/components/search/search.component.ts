@@ -13,7 +13,13 @@ export class SearchComponent implements OnInit {
   @ViewChild('f') searchForm: NgForm;
   searchparam: string;
   searchResult: any;
+  userResult = [];
+  postResult = [];
+  nasaResult = [];
   searchResultString = '';
+  peopleReady = false;
+  nasaReady = false;
+  postReady = false;
 
   constructor(private postService: PostService, private nasaService: NasaServiceClient, private userService: UserService) { }
 
@@ -25,13 +31,15 @@ export class SearchComponent implements OnInit {
     console.log('searching for', param) ;
     this.searchparam = param;
     this.userService.findUserByUsername(param).subscribe((response: any) => {
-      this.searchResult = response;
-      this.searchResultString += JSON.stringify(response) + '\n\n';
-      this.nasaService.searchImg(param).subscribe((imgresponse: any) => {
-        this.searchResult += imgresponse;
-        this.searchResultString += JSON.stringify(imgresponse) + '\n\n';
-      });
+      this.userResult.push(response);
+      this.peopleReady = true;
     });
+      this.nasaService.searchImg(param).subscribe((imgresponse: any) => {
+        this.nasaResult = imgresponse.collection.items;
+        this.searchResultString += JSON.stringify(imgresponse) + '&nbsp&nbsp';
+        this.nasaReady = true ;
+      });
+
   }
 
 }
