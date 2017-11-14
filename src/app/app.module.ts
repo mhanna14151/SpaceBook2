@@ -16,9 +16,14 @@ import {PostService} from './services/post.service.client';
 import {NasaServiceClient} from './services/nasa.service.client';
 import { RegisterComponent } from './components/user/register/register.component';
 import { ProfileComponent } from './components/user/profile/profile.component';
+import { PublicProfileComponent } from './components/user/public-profile/public-profile.component';
+
 import {ApodComponent} from './components/apod/apod.component';
 import {FrontPageComponent} from './components/user/front-page/front-page.component';
 import {ApodarchiveComponent} from './components/apodarchive/apodarchive.component';
+import { PostComponent } from './components/post/post.component';
+import { PostListComponent } from './components/post-list/post-list.component';
+
 
 @NgModule({
   // Declare components here
@@ -33,6 +38,9 @@ import {ApodarchiveComponent} from './components/apodarchive/apodarchive.compone
     SpaceBannerDefaultComponent,
     RegisterComponent,
     ProfileComponent,
+    PublicProfileComponent,
+    PostComponent,
+    PostListComponent,
 
   ],
   imports: [
