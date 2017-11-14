@@ -69,33 +69,33 @@ module.exports = function (app) {
       });
   }
 
-  function uploadProfilePicture(req, res) {
-    var myFile = req.file;
-    var userId = req.body.userId;
-
-    console.log('IN UPLOAD PROFILE IN SERVER.SERVICE');
-
-    var originalname = myFile.originalname;
-    var filename = myFile.filename;
-    var path = myFile.path;
-    var destination = myFile.destination;
-    var size = myFile.size;
-    var mimetype = myFile.mimetype;
-    var user1 = null;
-    userModel
-      .findUserById(userId)
-      .then(function (user) {
-        user1 = user;
-        user['picture'] = '/assets/uploads/' + filename;
-        userModel
-          .updateUser(userId, user1)
-          .then(function (usr) {
-            console.log(usr);
-            var callbackUrl =  '/user/' + userId;
-            usr.save();
-            res.redirect(callbackUrl);
-          });
-      });
-
-  }
+  // function uploadProfilePicture(req, res) {
+  //   var myFile = req.file;
+  //   var userId = req.body.userId;
+  //
+  //   console.log('IN UPLOAD PROFILE IN SERVER.SERVICE');
+  //
+  //   var originalname = myFile.originalname;
+  //   var filename = myFile.filename;
+  //   var path = myFile.path;
+  //   var destination = myFile.destination;
+  //   var size = myFile.size;
+  //   var mimetype = myFile.mimetype;
+  //   var user1 = null;
+  //   userModel
+  //     .findUserById(userId)
+  //     .then(function (user) {
+  //       user1 = user;
+  //       user['picture'] = '/assets/uploads/' + filename;
+  //       userModel
+  //         .updateUser(userId, user1)
+  //         .then(function (usr) {
+  //           console.log(usr);
+  //           var callbackUrl =  '/user/' + userId;
+  //           usr.save();
+  //           res.redirect(callbackUrl);
+  //         });
+  //     });
+  //
+  // }
 };
