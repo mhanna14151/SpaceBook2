@@ -23,6 +23,7 @@ import {FrontPageComponent} from './components/user/front-page/front-page.compon
 import {ApodarchiveComponent} from './components/apodarchive/apodarchive.component';
 import { PostComponent } from './components/post/post.component';
 import { PostListComponent } from './components/post-list/post-list.component';
+import { SearchComponent } from './components/search/search.component';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import { PostListComponent } from './components/post-list/post-list.component';
     PublicProfileComponent,
     PostComponent,
     PostListComponent,
+    SearchComponent,
 
   ],
   imports: [
