@@ -23,6 +23,9 @@ import {FrontPageComponent} from './components/user/front-page/front-page.compon
 import {ApodarchiveComponent} from './components/apodarchive/apodarchive.component';
 import { PostComponent } from './components/post/post.component';
 import { PostListComponent } from './components/post-list/post-list.component';
+import { SearchComponent } from './components/search/search.component';
+import { SearchProfileComponent } from './components/search/search-profile/search-profile.component';
+import { SearchNasaComponent } from './components/search/search-nasa/search-nasa.component';
 
 
 @NgModule({
@@ -41,6 +44,9 @@ import { PostListComponent } from './components/post-list/post-list.component';
     PublicProfileComponent,
     PostComponent,
     PostListComponent,
+    SearchComponent,
+    SearchProfileComponent,
+    SearchNasaComponent,
 
   ],
   imports: [
