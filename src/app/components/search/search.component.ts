@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {NgForm} from '@angular/forms';
+import {UserService} from '../../services/user.service.client';
+import {PostService} from '../../services/post.service.client';
+import {NasaServiceClient} from '../../services/nasa.service.client';
 
 @Component({
   selector: 'app-search',
@@ -6,10 +10,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
+  @ViewChild('f') searchForm: NgForm;
+  searchparam: string;
+  searchResult: any;
+  searchResultString = '';
 
-  constructor() { }
+  constructor(private postService: PostService, private nasaService: NasaServiceClient, private userService: UserService) { }
 
   ngOnInit() {
+  }
+
+  search(param: string) {
+    this.searchResultString = '' ;
+    console.log('searching for', param) ;
+    this.searchparam = param;
+    this.userService.findUserByUsername(param).subscribe((response: any) => {
+      this.searchResult = response;
+      this.searchResultString += JSON.stringify(response) + '\n\n';
+      this.nasaService.searchImg(param).subscribe((imgresponse: any) => {
+        this.searchResult += imgresponse;
+        this.searchResultString += JSON.stringify(imgresponse) + '\n\n';
+      });
+    });
   }
 
 }

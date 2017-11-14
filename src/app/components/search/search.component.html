@@ -1,3 +1,34 @@
+<nav class="navbar navbar-default_blue navbar-fixed-top">
+  <div class="container-fluid row">
+    <p class="navbar-header mb-navbar-padding pull-left">
+      <a class="navbar-brand thick">
+        <b class="jj-font">
+          Search
+        </b>
+      </a>
+    </p>
+    <p class="navbar-header mb-input-padding">
+    <input name="search"
+           id="search"
+           type="text"
+           placeholder="search here"
+           class="form-control"
+           ngModel
+           required
+           #searchField="ngModel"/></p>
+    <p class="navbar-text pull-right">
+      <button (click)="search(searchField.value)" type="submit" class="navbar-link jj-button">
+        <span class="jj-button-text glyphicon glyphicon-search"></span>
+      </button>
+    </p>
+  </div>
+</nav>
+<br>
+<br>
+<br>
+<br>
 <p>
-  search works!
+  Search Results:
+  <br>
+{{searchResultString}}
 </p>
