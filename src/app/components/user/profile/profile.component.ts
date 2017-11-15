@@ -40,7 +40,7 @@ export class ProfileComponent implements OnInit {
         this.password = this.user['password'];
         this.lastName = this.user['lastName'];
         this.email = this.user['email'];
-        this.picture = this.user['picture'];
+         this.picture = this.user['picture'];
         this.DOB = this.user['DOB'];
         this.phone = this.user['phone'];
       });
