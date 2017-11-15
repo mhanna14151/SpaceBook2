@@ -21,6 +21,8 @@ import {FrontPageComponent} from './components/user/front-page/front-page.compon
 import {ApodarchiveComponent} from './components/apodarchive/apodarchive.component';
 import { PostComponent } from './components/post/post.component';
 import { PostListComponent } from './components/post-list/post-list.component';
+import {PublicProfileComponent} from './components/user/public-profile/public-profile.component';
+import { CreatePostComponent } from './components/create-post/create-post.component';
 
 @NgModule({
   // Declare components here
@@ -37,6 +39,8 @@ import { PostListComponent } from './components/post-list/post-list.component';
     ProfileComponent,
     PostComponent,
     PostListComponent,
+    PublicProfileComponent,
+    CreatePostComponent
 
   ],
   imports: [

@@ -1,15 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
-import {UserService} from "../../../services/user.service.client";
+import {ActivatedRoute, Router} from '@angular/router';
+import {UserService} from '../../../services/user.service.client';
+import {PostService} from '../../../services/post.service.client';
 
 @Component({
   selector: 'app-public-profile',
   templateUrl: './public-profile.component.html',
   styleUrls: ['./public-profile.component.css']
 })
+
 export class PublicProfileComponent implements OnInit {
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute, private userService: UserService) { }
+  constructor(private router: Router,
+              private activatedRoute: ActivatedRoute,
+              private userService: UserService,
+              private postService: PostService) { }
   userId: String;
   firstName: String;
   lastName: String;
@@ -32,6 +37,11 @@ export class PublicProfileComponent implements OnInit {
   }
   editProfile() {
     this.router.navigate(['user/' + this.userId + '/edit'])
+  }
+
+  createPost() {
+    this.router.navigate(['user/' + this.userId + '/posts/new']);
+
   }
 
 }

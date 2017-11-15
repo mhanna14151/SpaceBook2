@@ -12,8 +12,8 @@ import {ActivatedRoute, Router} from '@angular/router';
 export class PostListComponent implements OnInit {
 
   @Input()
-  posts: any;
-  ID: String;
+  posts: any[];
+  userId: String;
 
 
   constructor(private postService: PostService, private userService: UserService,
@@ -22,9 +22,14 @@ export class PostListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.postService.findPostsbyTag(this.ID)
+    this.route.params.subscribe(params => {
+      this.userId = params['uid'];
+      console.log('userId is: ', this.userId);
+    });
+    this.postService.findPostsbyTag(this.userId)
       .subscribe((posts) => {
         this.posts = posts;
+        console.log('posts are: ', posts);
       });
   }
 }
