@@ -20,6 +20,7 @@ export class PublicProfileComponent implements OnInit {
   lastName: String;
   picture: String;
   follows: any [];
+  postsInPublicProfile: any[];
 
 
   ngOnInit() {
@@ -42,7 +43,12 @@ export class PublicProfileComponent implements OnInit {
             });
         }
       });
+    this.postService.findPostsByUser(this.userId)
+      .subscribe((posts) => {
+      this.postsInPublicProfile = posts;
+      });
   }
+
   editProfile() {
     this.router.navigate(['user/' + this.userId + '/edit'])
   }

@@ -11,7 +11,8 @@ import {ActivatedRoute, Router} from '@angular/router';
 
 export class PostComponent implements OnInit {
 
-  @Input('ID') ID: String;
+  @Input()
+  ID: String;
   post: any;
   poster: any;
   text: String;
@@ -34,23 +35,22 @@ export class PostComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.userId = params['uid'];
     });
-    // this.IDz = null; // remove this line post (as in after) testing phase is done and we have implemented making posts.
-    // if (this.ID === undefined) {
-    //   this.poster = {name: 'Alice'};
-    //   this.image1 = {name: 'Image 1', url: 'https://res.cloudinary.com/demo/image/upload/sample.jpg'};
-    //   this.image2 = {name: 'Image 2', url: 'https://i.ytimg.com/vi/lt0WQ8JzLz4/maxresdefault.jpg'};
-    //   this.tag1 = {name: 'SpaceX'};
-    //   this.tag2 = {name: 'NASA'};
-    //   this.ID = '0';
-    //   this.text = 'This is a sample post, where you can see that this functionality works';
-    //   this.images = [this.image1, this.image2];
-    //   this.likeAmount = 3;
-    //   this.date = new Date;
-    //   this.tags = [this.tag1, this.tag2, {name: 'Alice'}, {name: 'Frankenstein'}];
-    // } else {
+    if (this.ID === undefined) {
+      this.poster = {name: 'Alice'};
+      this.image1 = {name: 'Image 1', url: 'https://res.cloudinary.com/demo/image/upload/sample.jpg'};
+      this.image2 = {name: 'Image 2', url: 'https://i.ytimg.com/vi/lt0WQ8JzLz4/maxresdefault.jpg'};
+      this.tag1 = {name: 'SpaceX'};
+      this.tag2 = {name: 'NASA'};
+      this.ID = '0';
+      this.text = 'This is a sample post, where you can see that this functionality works';
+      this.images = [this.image1, this.image2];
+      this.likeAmount = 3;
+      this.date = new Date;
+      this.tags = [this.tag1, this.tag2, {name: 'Alice'}, {name: 'Frankenstein'}];
+    } else {
       this.postService.findPostbyId(this.ID)
         .subscribe((post) => {
-        console.log('post from component', post);
+          console.log('post from component', post);
           this.post = post;
           this.poster = post.username;
           this.images = post.images;
@@ -59,7 +59,8 @@ export class PostComponent implements OnInit {
           this.date = post.date;
           this.likeAmount = post.likeAmount;
         });
-    // }
+      // }
+    }
   }
 
   likeThisPost() {

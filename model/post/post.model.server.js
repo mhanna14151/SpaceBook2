@@ -57,8 +57,8 @@ function deletePost(postId) {
 }
 
 function findPostsByUser(userId) {
-  return PostModel.find({poster: userId})
-    .populate('poster')
-    .exec();
+  return PostModel.find({poster: userId});
+    // .populate('poster')
+    // .exec();
 }
 

@@ -17,7 +17,7 @@ export class PostService {
     'updatePost' : this.updatePost,
     'deletePost' : this.deletePost,
     'findAllPosts': this.findAllPosts,
-    'findPostsForUser': this.findPostsForUser
+    'findPostsByUser': this.findPostsByUser
   };
 
   createPost(post: any) {
@@ -29,8 +29,9 @@ export class PostService {
       });
   }
 
-  findPostsForUser(userId) {
-    const url = this.baseURL + '/api/post';
+  findPostsByUser(userId: String) {
+    console.log('userId from post client: ', userId);
+    const url = this.baseURL + '/api/post/user/' + userId;
     return this.http.get(url)
       .map((response: Response) => {
         return response.json();

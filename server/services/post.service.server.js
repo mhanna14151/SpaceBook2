@@ -4,6 +4,7 @@ module.exports = function (app) {
 
   app.get('/api/post/:pid', findPostById);
   app.get('/api/post', findPosts);
+  app.get('/api/post/user/:uid', findPostsByUser);
   app.post('/api/post', createPost);
   app.put('/api/post/:pid', updatePost);
   app.delete('/api/post/:pid', deletePost);
@@ -16,11 +17,22 @@ module.exports = function (app) {
       });
   }
 
+
+  function findPostsByUser(req, res) {
+    console.log('server: findPostByUser');
+    console.log('reqbody: ', req.body);
+    var userId = req.params['uid'];
+    console.log('server userId: ', userId);
+    postModel.findPostsByUser(userId).then(function(posts) {
+      res.json(posts);
+    });
+  }
+
   function findPosts(req, res) {
     console.log("entered the server Find Posts");
     var tag = req.query['tag'];
     var userId = req.params['uid'];
-    var postId = req.params['pid']
+    var postId = req.params['pid'];
     console.log('tag is ', tag);
     console.log('userId is', userId);
     if (tag) {
@@ -28,13 +40,7 @@ module.exports = function (app) {
       postModel.findPostsByTag(tag).then(function (posts) {
         res.json(posts);
       });
-    } else if (userId) {
-      console.log('entered userId');
-      postModel.findPostsByUser(userId).then(function (posts) {
-        res.json(posts);
-      });
-    }
-    else {
+    } else {
       postModel.findAllPosts().then(function(posts) {
         res.json(posts);
       })
@@ -70,12 +76,5 @@ module.exports = function (app) {
     });
 
   }
-
-  // function findPostByUser(req, res) {
-  //   var userId = req.params['uid'];
-  //   postModel.findPostsByUser(userId).then(function(posts) {
-  //     res.json(posts);
-  //   });
-  // }
 
 };
