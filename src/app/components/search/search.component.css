@@ -1,0 +1,17 @@
+.jj-font {
+  font-family: final_frontier_old_styleRg;
+}
+
+.navbar .navbar-header .navbar-brand .jj-font {
+  font-family: final_frontier_old_styleRg;
+  font-size: xx-large;
+
+}
+
+.mb-navbar-padding {
+  padding-left: 10px;
+}
+
+.mb-input-padding {
+  padding-top: 10px;
+}
