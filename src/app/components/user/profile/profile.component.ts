@@ -50,7 +50,6 @@ export class ProfileComponent implements OnInit {
   }
 
   goToProfile(uname, email, fname, lname, phone, DOB) {
-    console.log('USERNAME IN EDIT ', uname);
     const user = {username: uname, email: email, firstName: fname, lastName: lname, phone: phone, DOB: DOB};
     this.userService.updateUser(this.userId, user)
       .subscribe((user1) => {
@@ -69,13 +68,13 @@ export class ProfileComponent implements OnInit {
       });
   }
 
-  commit(pic) {
-    const user = {_id: this.userId, password: this.password, username: this.username, firstName: this.firstName,
-      lastName: this.lastName, email: this.email, picture: pic};
-    this.userService.updateUser(this.userId, user)
-      .subscribe((usr: any) => {
-        this.user = usr;
-      });
-
-  }
+  // commit(pic) {
+  //   const user = {_id: this.userId, password: this.password, username: this.username, firstName: this.firstName,
+  //     lastName: this.lastName, email: this.email, picture: pic};
+  //   this.userService.updateUser(this.userId, user)
+  //     .subscribe((usr: any) => {
+  //       this.user = usr;
+  //     });
+  //
+  // }
 }

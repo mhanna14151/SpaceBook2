@@ -1,13 +1,26 @@
-<div class="pull-left">
-  <button class="jj-button-profile" (click)="editProfile()">
-  <img class="jj-img-padding" src="{{picture}}">
-  <div class="jj-container">
-    <h4><b>{{firstName}} {{lastName}}</b></h4>
+<div class="container-fluid">
+  <button class="jj-button-profile jj-card" (click)="editProfile()">
+    <img class="jj-img-padding" src="{{picture}}">
+    <div class="jj-container">
+      <h4><b>{{firstName}} {{lastName}}</b></h4>
+    </div>
+  </button>
+<div>
+  <h1>FOLLOWS</h1>
+  <div *ngFor="let user of follows">
+    <button (click)="goToUserProfile(user._id)">{{user.firstName}} {{user.lastName}}</button>
+    <button (click)="deleteFollow(user._id)"><span class="glyphicon glyphicon-remove"></span> </button>
   </div>
+</div>
+  <button class="btn btn-warning btn-block jj-button-hover"
+          aria-pressed="true"
+          [routerLink]="['/login']">
+    Logout
+  </button>
+  <button class="btn btn-info btn-block jj-button-hover"
+          aria-pressed="true"
+          (click)="search()">
+    Search
   </button>
 </div>
-<button class="btn btn-warning btn-block jj-button-hover"
-        aria-pressed="true"
-        [routerLink]="['/login']">
-  Logout
-</button>
+

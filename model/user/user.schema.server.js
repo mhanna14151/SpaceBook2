@@ -8,7 +8,8 @@ var UserSchema = mongoose.Schema({
   phone: String,
   verified: Boolean,
   DOB: Date,
-  picture: String
+  picture: String,
+  follows: [String]
 }, {collection: 'user'});
 
 module.exports = UserSchema;
