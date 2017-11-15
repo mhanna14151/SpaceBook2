@@ -20,9 +20,7 @@ export class ProfileComponent implements OnInit {
   email: string;
   picture: String;
   phone: String;
-  DOB: Date;
-  baseURL = environment.baseUrl;
-  check: Date;
+  DOB: String;
 
   constructor(private userService: UserService, private activatedRoute: ActivatedRoute, private router: Router) {
   }
@@ -44,7 +42,6 @@ export class ProfileComponent implements OnInit {
         this.email = this.user['email'];
         this.picture = this.user['picture'];
         this.DOB = this.user['DOB'];
-        this.check = new Date();
         this.phone = this.user['phone'];
       });
   }

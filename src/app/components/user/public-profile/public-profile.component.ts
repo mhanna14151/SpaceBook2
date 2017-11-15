@@ -15,7 +15,10 @@ export class PublicProfileComponent implements OnInit {
   lastName: String;
   picture: String;
   follows: any[];
-
+  birthday: Boolean;
+  DOB: String;
+  today = new Date();
+  birthdayMsg = 'Happy Birthday!';
 
   ngOnInit() {
     this.activatedRoute.params
@@ -24,12 +27,17 @@ export class PublicProfileComponent implements OnInit {
           this.userId = params['uid'];
         }
       );
+    this.birthday = false;
     this.userService.findUserById(this.userId)
       .subscribe( (user: any) => {
         var f = [];
         this.firstName = user['firstName'];
         this.lastName = user['lastName'];
         this.picture = user['picture'];
+        this.DOB = user['DOB'];
+        if((this.DOB[5]+this.DOB[6] === (this.today.getUTCMonth()+1).toString()) && (this.DOB[8]+this.DOB[9] === this.today.getUTCDate().toString())) {
+          this.birthday = true;
+        }
         for (var i = 0; i < user['follows'].length; i++) {
           this.userService.findUserById(user['follows'][i])
             .subscribe((user: any) => {

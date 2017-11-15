@@ -1,4 +1,8 @@
 <div class="container-fluid">
+  <div *ngIf="birthday"
+       class="alert alert-danger">
+    {{birthdayMsg}}
+  </div>
   <button class="jj-button-profile jj-card" (click)="editProfile()">
     <img class="jj-img-padding" src="{{picture}}">
     <div class="jj-container">
