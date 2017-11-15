@@ -19,10 +19,13 @@ export class PublicProfileComponent implements OnInit {
   firstName: String;
   lastName: String;
   picture: String;
-  follows: any [];
+  follows: any[];
+  birthday: Boolean;
+  DOB: String;
+  today = new Date();
+  birthdayMsg = 'Happy Birthday!';
   postsInPublicProfile: any[];
-
-
+  
   ngOnInit() {
     this.activatedRoute.params
       .subscribe(
@@ -30,27 +33,34 @@ export class PublicProfileComponent implements OnInit {
           this.userId = params['uid'];
         }
       );
+    this.birthday = false;
     this.userService.findUserById(this.userId)
       .subscribe( (user: any) => {
-        console.log(user);
+        var f = [];
         this.firstName = user['firstName'];
         this.lastName = user['lastName'];
         this.picture = user['picture'];
+        this.DOB = user['DOB'];
+        if((this.DOB[5]+this.DOB[6] === (this.today.getUTCMonth()+1).toString()) && (this.DOB[8]+this.DOB[9] === this.today.getUTCDate().toString())) {
+          this.birthday = true;
+        }
         for (var i = 0; i < user['follows'].length; i++) {
           this.userService.findUserById(user['follows'][i])
             .subscribe((user: any) => {
-              this.follows.push(user);
+              f.push(user);
             });
+          this.follows = f;
         }
       });
     this.postService.findPostsByUser(this.userId)
       .subscribe((posts) => {
       this.postsInPublicProfile = posts;
       });
+    console.log(this.follows);
   }
 
   editProfile() {
-    this.router.navigate(['user/' + this.userId + '/edit'])
+    this.router.navigate(['user/' + this.userId + '/edit']);
   }
 
   goToUserProfile(userId) {
@@ -60,6 +70,31 @@ export class PublicProfileComponent implements OnInit {
   navigateToPost() {
     this.router.navigate(['user/' + this.userId + '/posts/new']);
 
+  search() {
+    this.router.navigate(['user/' + this.userId + '/search']);
+  }
+
+  deleteFollow(userId) {
+    console.log(userId);
+    for(var i = 0; i < this.follows.length; i++) {
+      if (this.follows[i]._id === userId) {
+        this.follows.splice(i, 1);
+      }
+    }
+    console.log('SAVED ONES ', this.follows);
+    this.userService.findUserById(this.userId)
+      .subscribe((user: any) => {
+        console.log('PREVIOUS USER.FOLLOWS ', user.follows);
+        user.follows = [];
+        for(var i = 0; i < this.follows.length; i++) {
+          user.follows.push(this.follows[i]._id)
+        }
+        console.log('UPDATED USER.FOLLOWS ', user.follows);
+        this.userService.updateUser(this.userId, user)
+          .subscribe((usr: any) => {
+          });
+      });
+    console.log(this.follows);
   }
 
 }
