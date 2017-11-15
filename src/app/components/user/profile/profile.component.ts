@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {UserService} from '../../../services/user.service.client';
 import {ActivatedRoute, Router} from '@angular/router';
 import {NgForm} from '@angular/forms';
+import {environment} from '../../../../environments/environment';
 
 @Component({
   selector: 'app-profile',
@@ -39,12 +40,8 @@ export class ProfileComponent implements OnInit {
       });
   }
 
-  websites() {
-    this.router.navigate(['user/', this.userId, 'website']);
-  }
-
-  goToProfile(uname, email, fname, lname) {
-    const user = {username: uname, email: email, firstName: fname, lastName: lname};
+  goToProfile(uname, email, fname, lname, phone, DOB) {
+    const user = {username: uname, email: email, firstName: fname, lastName: lname, phone: phone, DOB: DOB};
     this.userService.updateUser(this.userId, user)
       .subscribe((user1) => {
       });
@@ -60,4 +57,14 @@ export class ProfileComponent implements OnInit {
         this.router.navigate(['/login']);
       });
   }
+
+  // commit(pic) {
+  //   const user = {_id: this.userId, password: this.password, username: this.username, firstName: this.firstName,
+  //     lastName: this.lastName, email: this.email, picture: pic};
+  //   this.userService.updateUser(this.userId, user)
+  //     .subscribe((usr: any) => {
+  //       this.user = usr;
+  //     });
+  //
+  // }
 }

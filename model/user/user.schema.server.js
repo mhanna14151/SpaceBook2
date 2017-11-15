@@ -7,7 +7,9 @@ var UserSchema = mongoose.Schema({
   email: String,
   phone: String,
   verified: Boolean,
-  DOB: Date
+  DOB: Date,
+  picture: String,
+  follows: [{type: mongoose.Schema.Types.ObjectId, ref: 'UserModel'}]
 }, {collection: 'user'});
 
 module.exports = UserSchema;
