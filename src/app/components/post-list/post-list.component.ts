@@ -26,7 +26,7 @@ export class PostListComponent implements OnInit {
       this.userId = params['uid'];
       console.log('userId is: ', this.userId);
     });
-    this.postService.findPostsbyTag(this.userId)
+    this.postService.findPostsForUser(this.userId)
       .subscribe((posts) => {
         this.posts = posts;
         console.log('posts are: ', posts);

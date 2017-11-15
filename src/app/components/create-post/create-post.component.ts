@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {PostService} from '../../services/post.service.client';
 import {ActivatedRoute, Router} from '@angular/router';
+import {UserService} from "../../services/user.service.client";
 
 @Component({
   selector: 'app-create-post',
@@ -20,16 +21,22 @@ export class CreatePostComponent implements OnInit {
   date: Date;
   likeAmount: Number;
   tags: any[];
+  user: any;
 
   constructor(private postService: PostService,
+              private userService: UserService,
               private route: ActivatedRoute,
               private router: Router) { }
 
   ngOnInit() {
-    // this.route.params.subscribe(params => {
-    //   this.posterId = params['uid'];
-    //   this.postId = params['pid'];
-    // });
+    this.route.params.subscribe(params => {
+      this.posterId = params['uid'];
+      this.postId = params['pid'];
+    });
+    this.userService.findUserById(this.posterId)
+      .subscribe((user) => {
+      this.user = user;
+      });
     // this.postService.findPostbyId(this.postId)
     //   .subscribe((post) => {
     //     this.post = post;
@@ -41,7 +48,7 @@ export class CreatePostComponent implements OnInit {
     //     this.likeAmount = post.likeAmount;
     //     this.tags = post.tags;
     //   });
-    this.postService.findPostsbyTag(this.posterId)
+    this.postService.findAllPosts()
       .subscribe((posts) => {
       this.posts = posts;
     });
@@ -54,14 +61,16 @@ export class CreatePostComponent implements OnInit {
       });
   }
 
-  createPost() {
-    const newPost = {posterId: this.posterId, name: this.usernameOfPoster, text: this.text, images: this.images,
+  createThisPost() {
+    const newPost = {poster: this.user, name: this.user.username, text: this.text, images: this.images,
     date: new Date(), likeAmount: 0, tags: this.tags};
+    console.log('The post to be posted:', newPost);
     this.postService.createPost(newPost)
       .subscribe((posts) => {
       this.posts = posts;
-    });
+      });
     this.router.navigate(['user/', this.posterId]);
+
   }
 
 

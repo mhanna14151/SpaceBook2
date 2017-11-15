@@ -51,7 +51,7 @@ export class PublicProfileComponent implements OnInit {
     this.router.navigate(['user/' + userId]);
   }
 
-  createPost() {
+  navigateToPost() {
     this.router.navigate(['user/' + this.userId + '/posts/new']);
 
   }

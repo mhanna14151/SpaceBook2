@@ -43,7 +43,7 @@ import { SearchNasaComponent } from './components/search/search-nasa/search-nasa
     PostComponent,
     PostListComponent,
     PublicProfileComponent,
-    CreatePostComponent
+    CreatePostComponent,
     SearchComponent,
     SearchProfileComponent,
     SearchNasaComponent,

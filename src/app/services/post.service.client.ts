@@ -15,12 +15,23 @@ export class PostService {
     'findPostsbyTags': this.findPostsbyTags,
     'findPostsbyTag' : this.findPostsbyTag,
     'updatePost' : this.updatePost,
-    'deletePost' : this.deletePost
+    'deletePost' : this.deletePost,
+    'findAllPosts': this.findAllPosts,
+    'findPostsForUser': this.findPostsForUser
   };
 
   createPost(post: any) {
     const url = this.baseURL + '/api/post';
+    console.log('post from client', post);
     return this.http.post(url, post)
+      .map((response: Response) => {
+        return response.json();
+      });
+  }
+
+  findPostsForUser(userId) {
+    const url = this.baseURL + '/api/post';
+    return this.http.get(url)
       .map((response: Response) => {
         return response.json();
       });
@@ -28,6 +39,14 @@ export class PostService {
 
   findPostbyId(postId: String) {
     const url = this.baseURL + '/api/post/' + postId;
+    return this.http.get(url)
+      .map((response: Response) => {
+        return response.json();
+      });
+  }
+
+  findAllPosts() {
+    const url = this.baseURL + '/api/post'
     return this.http.get(url)
       .map((response: Response) => {
         return response.json();

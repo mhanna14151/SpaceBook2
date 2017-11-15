@@ -11,9 +11,9 @@
     </p>
 
     <p class="navbar-text pull-right">
-      <button (click)="goToProfile(username, email, firstName, lastName)"  class="navbar-link jj-button">
+      <!--<button (click)="goToProfile(username, email, firstName, lastName)"  class="navbar-link jj-button">-->
         <span class="jj-button-text glyphicon glyphicon-ok"></span>
-      </button>
+      <!--</button>-->
     </p>
   </div>
 </nav>
@@ -75,11 +75,6 @@
     <!--</form>-->
   </form>
 
-  <button (click)="websites()"
-          class="btn btn-primary btn-block jj-button-hover"
-          aria-pressed="true">
-    Websites
-  </button>
   <button class="btn btn-warning btn-block jj-button-hover"
           aria-pressed="true"
           [routerLink]="['/login']">

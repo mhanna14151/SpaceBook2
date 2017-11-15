@@ -2,12 +2,8 @@
 
 
 <div class = "container-fluid">
-
   <label>Original Poster</label>
-  <input class="form-control"
-         type = "text"
-         value = {{usernameOfPoster}}>
-
+  <div class = "form-control">{{usernameOfPoster}}</div>
   <label>Text</label>
   <input class="form-control"
          type="text"
@@ -38,7 +34,7 @@
   <!--(click)="updateWidgetImage(widgetID, text, width, url)">Upload Image</button>-->
   <!--<br/>-->
   <!--</form>-->
-  <a class = "btn btn-success" (click)="createPost()">Create Post</a>
+  <a class = "btn btn-success" (click)="createThisPost()">Create Post</a>
   <a class="btn btn-danger btn-block"
      (click)="deleteThisPost(postId)">Delete</a>
 </div>
