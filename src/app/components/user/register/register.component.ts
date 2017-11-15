@@ -44,14 +44,15 @@ export class RegisterComponent implements OnInit {
     console.log(DOB[8]+DOB[9]);
     const d = new Date();
     console.log(d.getUTCDate());
-    console.log(d.getUTCDate().toString() === DOB[8]+DOB[9]);
+    console.log(d.getUTCDate().toString() === DOB[8] + DOB[9]);
     this.userService.findUserByUsername(username)
       .subscribe((user: any) => {
         if (user !== null) {
           this.errorFlag = true;
           this.errorMsg = 'Username already in use, please choose another username!';
         }else {
-          const user1 = {username: username, password: password, firstName: firstName, lastName: lastName, email: email};
+          const user1 = {username: username, password: password, firstName: firstName, lastName: lastName, email: email,
+            picture: 'https://upload.wikimedia.org/wikipedia/commons/4/48/Creative-Tail-astronaut.svg', DOB: DOB, phone: phone};
           this.userService.createUser(user1)
             .subscribe((user2) => {
               this.user = user2;

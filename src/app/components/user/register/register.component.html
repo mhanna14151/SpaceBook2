@@ -7,7 +7,7 @@
   </div>
 
   <h1>Register</h1>
-  <form (ngSubmit)="register(username.value, password.value, email.value, firstName.value, lastName.value)" #f="ngForm">
+  <form (ngSubmit)="register(username.value, password.value, email.value, firstName.value, lastName.value, DOB.value)" #f="ngForm">
     <input name="username"
            id="username"
            type="text"
@@ -85,9 +85,24 @@
     <span class="help-block" *ngIf="!lastName.valid && lastName.touched">
       Please enter last name!
     </span>
+    <input name="DOB"
+           id="DOB"
+           type="date"
+           class="form-control"
+           ngModel
+           required
+           #DOB="ngModel"/>
+    <input name="phone"
+           id="phone"
+           type="tel"
+           placeholder="xxx-xxx-xxxx"
+           class="form-control"
+           ngModel
+           required
+           #phone="ngModel"/>
 
   </form>
-  <button (click)="registered(username.value, password.value, firstName.value, lastName.value, email.value, DOB)"
+  <button (click)="registered(username.value, password.value, firstName.value, lastName.value, email.value, DOB.value, phone.value)"
           class="btn btn-primary btn-block jj-button-hover"
           type="submit"
           aria-pressed="true"
@@ -101,4 +116,3 @@
     Cancel
   </button>
 </div>
-
