@@ -10,7 +10,6 @@ UserModel.findUserByUsername = findUserByUsername;
 UserModel.updateUser = updateUser;
 UserModel.deleteUser = deleteUser;
 
-
 module.exports = UserModel;
 
 function findUserByCredentials(username, password) {

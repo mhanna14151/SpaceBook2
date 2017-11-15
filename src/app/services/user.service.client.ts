@@ -15,8 +15,16 @@ export class UserService {
     'findUserByUsername' : this.findUserByUsername,
     'findUserByCredentials' : this.findUserByCredentials,
     'updateUser' : this.updateUser,
-    'deleteUser' : this.deleteUser
+    'deleteUser' : this.deleteUser,
   };
+
+  addFollower(userId, followedId) {
+    const url = this.baseURL + '/api/user/' + userId;
+    return this.http.put(url, followedId)
+      .map((response: Response) => {
+        return response.json();
+      });
+  }
 
   createUser(user: any) {
     const url = this.baseURL + '/api/user';

@@ -14,7 +14,7 @@ export class PublicProfileComponent implements OnInit {
   firstName: String;
   lastName: String;
   picture: String;
-  follows: any [];
+  follows: any[];
 
 
   ngOnInit() {
@@ -26,24 +26,53 @@ export class PublicProfileComponent implements OnInit {
       );
     this.userService.findUserById(this.userId)
       .subscribe( (user: any) => {
-        console.log(user);
+        var f = [];
         this.firstName = user['firstName'];
         this.lastName = user['lastName'];
         this.picture = user['picture'];
         for (var i = 0; i < user['follows'].length; i++) {
           this.userService.findUserById(user['follows'][i])
             .subscribe((user: any) => {
-              this.follows.push(user);
+              f.push(user);
             });
+          this.follows = f;
         }
       });
+    console.log(this.follows);
   }
   editProfile() {
-    this.router.navigate(['user/' + this.userId + '/edit'])
+    this.router.navigate(['user/' + this.userId + '/edit']);
   }
 
   goToUserProfile(userId) {
     this.router.navigate(['user/' + userId]);
+  }
+
+  search() {
+    this.router.navigate(['user/' + this.userId + '/search']);
+  }
+
+  deleteFollow(userId) {
+    console.log(userId);
+    for(var i = 0; i < this.follows.length; i++) {
+      if (this.follows[i]._id === userId) {
+        this.follows.splice(i, 1);
+      }
+    }
+    console.log('SAVED ONES ', this.follows);
+    this.userService.findUserById(this.userId)
+      .subscribe((user: any) => {
+        console.log('PREVIOUS USER.FOLLOWS ', user.follows);
+        user.follows = [];
+        for(var i = 0; i < this.follows.length; i++) {
+          user.follows.push(this.follows[i]._id)
+        }
+        console.log('UPDATED USER.FOLLOWS ', user.follows);
+        this.userService.updateUser(this.userId, user)
+          .subscribe((usr: any) => {
+          });
+      });
+    console.log(this.follows);
   }
 
 }

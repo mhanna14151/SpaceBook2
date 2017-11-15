@@ -11,7 +11,6 @@ module.exports = function (app) {
   app.delete("/api/user/:uid", deleteUser);
   // app.post("/api/upload", upload.single('myFile'), uploadProfilePicture);
 
-
   function findUserById(req, res) {
     var userId = req.params["uid"];
     userModel.findUserById(userId)
