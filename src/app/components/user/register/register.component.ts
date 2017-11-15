@@ -19,9 +19,6 @@ export class RegisterComponent implements OnInit {
   errorMsg: String;
   user: any;
   user_id: String;
-  picture: 'https://upload.wikimedia.org/wikipedia/commons/4/48/Creative-Tail-astronaut.svg';
-  DOB: Date;
-  phone: String;
   constructor(private userService: UserService, private router: Router) {
 
   }
@@ -37,15 +34,14 @@ export class RegisterComponent implements OnInit {
     this.errorMsg = 'Invalid username or password!';
     this.errorFlag = false;
   }
-  registered(username, password, firstName, lastName, email, DOB, phone) {
+  registered(username, password, firstName, lastName, email) {
     this.userService.findUserByUsername(username)
       .subscribe((user: any) => {
         if (user !== null) {
           this.errorFlag = true;
           this.errorMsg = 'Username already in use, please choose another username!';
         }else {
-          const user1 = {username: username, password: password, firstName: firstName, lastName: lastName, email: email,
-          picture: 'https://upload.wikimedia.org/wikipedia/commons/4/48/Creative-Tail-astronaut.svg', DOB: DOB, phone: phone};
+          const user1 = {username: username, password: password, firstName: firstName, lastName: lastName, email: email};
           this.userService.createUser(user1)
             .subscribe((user2) => {
               this.user = user2;
