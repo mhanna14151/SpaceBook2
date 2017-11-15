@@ -18,6 +18,9 @@ export class ProfileComponent implements OnInit {
   firstName: string;
   lastName: string;
   email: string;
+  picture: String;
+  phone: String;
+  DOB: String;
 
   constructor(private userService: UserService, private activatedRoute: ActivatedRoute, private router: Router) {
   }
@@ -37,6 +40,9 @@ export class ProfileComponent implements OnInit {
         this.password = this.user['password'];
         this.lastName = this.user['lastName'];
         this.email = this.user['email'];
+        this.picture = this.user['picture'];
+        this.DOB = this.user['DOB'];
+        this.phone = this.user['phone'];
       });
   }
 
