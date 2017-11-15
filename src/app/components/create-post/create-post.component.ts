@@ -31,7 +31,7 @@ export class CreatePostComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.posterId = params['uid'];
-      this.postId = params['pid'];
+      // this.postId = params['pid'];
     });
     this.userService.findUserById(this.posterId)
       .subscribe((user) => {
@@ -48,10 +48,10 @@ export class CreatePostComponent implements OnInit {
     //     this.likeAmount = post.likeAmount;
     //     this.tags = post.tags;
     //   });
-    this.postService.findAllPosts()
-      .subscribe((posts) => {
-      this.posts = posts;
-    });
+    // this.postService.findAllPosts()
+    //   .subscribe((posts) => {
+    //   this.posts = posts;
+    // });
   }
 
   deleteThisPost(ID) {
@@ -62,14 +62,19 @@ export class CreatePostComponent implements OnInit {
   }
 
   createThisPost() {
-    const newPost = {poster: this.user, name: this.user.username, text: this.text, images: this.images,
-    date: new Date(), likeAmount: 0, tags: this.tags};
+    const newPost = {poster: this.posterId, text: this.text,
+    date: new Date()};
+    // const newPost = {poster: this.user, text: this.text, images: this.images,
+    //   date: new Date(), likeAmount: 0, tags: this.tags};
+
     console.log('The post to be posted:', newPost);
     this.postService.createPost(newPost)
       .subscribe((posts) => {
-      this.posts = posts;
+      // this.posts = posts;
+        this.router.navigate(['user/', this.posterId]);
+
       });
-    this.router.navigate(['user/', this.posterId]);
+    // this.router.navigate(['user/', this.posterId]);
 
   }
 

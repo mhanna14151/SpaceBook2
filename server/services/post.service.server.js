@@ -59,6 +59,7 @@ module.exports = function (app) {
       });
   }
 
+
   function updatePost(req, res) {
     var postId = req.params['uid'];
     var updatedPost = req.body;

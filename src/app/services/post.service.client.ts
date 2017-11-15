@@ -22,7 +22,7 @@ export class PostService {
 
   createPost(post: any) {
     const url = this.baseURL + '/api/post';
-    console.log('post from client', post);
+    console.log('create post from client', post);
     return this.http.post(url, post)
       .map((response: Response) => {
         return response.json();
