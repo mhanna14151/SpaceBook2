@@ -1,0 +1,23 @@
+.mb-search-result-box {
+  padding: 5px;
+  background: lightgray;
+  margin: 5px;
+}
+.mb-img-pad {
+  padding: 7px;
+}
+
+.mb-img-max {
+  max-height: 200px;
+  max-width: 200px;
+}
+
+.jj-font {
+  font-family: final_frontier_old_styleRg;
+}
+
+.navbar .navbar-header .navbar-brand .jj-font {
+  font-family: final_frontier_old_styleRg;
+  font-size: xx-large;
+
+}
