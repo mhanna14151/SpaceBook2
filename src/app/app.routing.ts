@@ -13,6 +13,8 @@ import {PublicProfileComponent} from './components/user/public-profile/public-pr
 import {PostComponent} from './components/post/post.component';
 import {PostListComponent} from './components/post-list/post-list.component';
 import {SearchComponent} from './components/search/search.component';
+import {CelestialBodyComponent} from "./components/celestial-body/celestial-body.component";
+
 
 
 
@@ -29,7 +31,8 @@ const APP_ROUTES: Routes = [
   {path: 'APOD/Archive', component: ApodarchiveComponent},
   {path: 'nasa-pic/:imgid/details', component: NasaPictureDetailsComponent},
   {path: 'testPostComponent', component: PostComponent}, // these paths are temporary, will likely be renamed
-  {path: 'testListComponent', component: PostListComponent} // these paths are temporary, will likely be renamed.
+  {path: 'testListComponent', component: PostListComponent}, // these paths are temporary, will likely be renamed.
+  {path: 'cb/:cbid', component: CelestialBodyComponent}
   // so on
 ];
 

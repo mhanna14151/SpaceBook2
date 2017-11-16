@@ -36,6 +36,16 @@
     <app-search-profile [user]="person"></app-search-profile>
   </div>
 </div>
+<div *ngIf="cbReady">
+  <br>
+  <p>
+    Space Results:
+    <br>
+  </p>
+  <div *ngFor="let cb of cbResult">
+    <app-search-cb [cb]="cb"></app-search-cb>
+  </div>
+</div>
 <div *ngIf="postReady">
 <p>
   Post Results: (not working yet)

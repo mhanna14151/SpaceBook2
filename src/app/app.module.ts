@@ -14,6 +14,7 @@ import { SpaceBannerDefaultComponent } from './space-banner-default/space-banner
 import {UserService} from './services/user.service.client';
 import {PostService} from './services/post.service.client';
 import {NasaServiceClient} from './services/nasa.service.client';
+import {CBService} from './services/cb.service.client';
 import { RegisterComponent } from './components/user/register/register.component';
 import { ProfileComponent } from './components/user/profile/profile.component';
 import { PublicProfileComponent } from './components/user/public-profile/public-profile.component';
@@ -26,6 +27,8 @@ import { PostListComponent } from './components/post-list/post-list.component';
 import { SearchComponent } from './components/search/search.component';
 import { SearchProfileComponent } from './components/search/search-profile/search-profile.component';
 import { SearchNasaComponent } from './components/search/search-nasa/search-nasa.component';
+import { CelestialBodyComponent } from './components/celestial-body/celestial-body.component';
+import { SearchCbComponent } from './components/search/search-cb/search-cb.component';
 
 
 @NgModule({
@@ -47,6 +50,8 @@ import { SearchNasaComponent } from './components/search/search-nasa/search-nasa
     SearchComponent,
     SearchProfileComponent,
     SearchNasaComponent,
+    CelestialBodyComponent,
+    SearchCbComponent,
 
   ],
   imports: [
@@ -56,7 +61,7 @@ import { SearchNasaComponent } from './components/search/search-nasa/search-nasa
     Routing
   ],
   // Client Side services here
-  providers: [NasaServiceClient, UserService, PostService],
+  providers: [NasaServiceClient, UserService, PostService, CBService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
