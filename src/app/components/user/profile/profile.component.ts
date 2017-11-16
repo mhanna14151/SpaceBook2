@@ -40,7 +40,7 @@ export class ProfileComponent implements OnInit {
         this.password = this.user['password'];
         this.lastName = this.user['lastName'];
         this.email = this.user['email'];
-         this.picture = this.user['picture'];
+        this.picture = this.user['picture'];
         this.DOB = this.user['DOB'];
         this.phone = this.user['phone'];
       });
@@ -50,6 +50,7 @@ export class ProfileComponent implements OnInit {
     const user = {username: uname, email: email, firstName: fname, lastName: lname, phone: phone, DOB: DOB};
     this.userService.updateUser(this.userId, user)
       .subscribe((user1) => {
+        this.router.navigate(['user/' + this.userId]);
       });
   }
 

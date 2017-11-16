@@ -27,4 +27,11 @@ export class SpaceBannerDefaultComponent implements OnInit {
     this.router.navigate(['user/', this.userId]);
   }
 
+  /**
+   * This will have to be improved for security.
+   */
+  logOut() {
+    this.router.navigate(['/login']);
+  }
+
 }

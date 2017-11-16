@@ -49,7 +49,7 @@ function findPostById(postId) {
 }
 
 function updatePost(postId, post) {
-  return PostModel.update({_id: postId}, post);
+  return PostModel.updateOne({_id: postId}, post);
 }
 
 function deletePost(postId) {

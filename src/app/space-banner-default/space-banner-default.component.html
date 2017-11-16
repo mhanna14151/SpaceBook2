@@ -1,8 +1,9 @@
 <!--The banner-->
 <div class="SpaceNav moh-jj-font" id="SpaceNavBar">
   <a>SpaceBook</a>
-  <app-search></app-search>
-  <a class = "pull-right">Home</a>
+  <!--<app-search></app-search>-->
+  <a class = "pull-right" (click) = "logOut()">Logout</a>
+  <a class = "pull-right" (click) = "navigateToProfile()">Home</a>
   <a class = "pull-right" (click) = "navigateToProfile()">Profile</a>
 </div>
 

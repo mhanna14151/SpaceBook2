@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {PostService} from '../../services/post.service.client';
 import {ActivatedRoute, Router} from '@angular/router';
 import {UserService} from "../../services/user.service.client";
+import {environment} from "../../../environments/environment";
 
 @Component({
   selector: 'app-create-post',
@@ -15,13 +16,15 @@ export class CreatePostComponent implements OnInit {
   post: any;
   posts: any[];
   usernameOfPoster: String;
+  url: String;
   text: String;
   images: any[];
   width: Number;
   date: Date;
-  likeAmount: Number;
+  likes: Number;
   tags: any[];
   user: any;
+  baseUrl = environment.baseUrl;
 
   constructor(private postService: PostService,
               private userService: UserService,
@@ -59,11 +62,12 @@ export class CreatePostComponent implements OnInit {
       .subscribe(() => {
         this.router.navigate(['user/', this.posterId]);
       });
+    this.text = null;
   }
 
   createThisPost() {
-    const newPost = {poster: this.posterId, text: this.text,
-    date: new Date()};
+    const newPost = {poster: this.posterId, text: this.text, likes: 0,
+    date: new Date(), images: [this.url]};
     // const newPost = {poster: this.user, text: this.text, images: this.images,
     //   date: new Date(), likeAmount: 0, tags: this.tags};
 
@@ -71,8 +75,7 @@ export class CreatePostComponent implements OnInit {
     this.postService.createPost(newPost)
       .subscribe((posts) => {
       // this.posts = posts;
-        this.router.navigate(['user/', this.posterId]);
-
+        this.router.navigate([this.baseUrl + 'user/', this.posterId]);
       });
     // this.router.navigate(['user/', this.posterId]);
 

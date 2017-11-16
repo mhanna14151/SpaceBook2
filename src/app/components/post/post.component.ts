@@ -19,7 +19,7 @@ export class PostComponent implements OnInit {
   images: any[];
   tags: any[];
   date: Date;
-  likeAmount: Number;
+  likes: Number;
   userId: String;
   testPost: any;
   image1: any; // here for testing
@@ -44,7 +44,7 @@ export class PostComponent implements OnInit {
       this.ID = '0';
       this.text = 'This is a sample post, where you can see that this functionality works';
       this.images = [this.image1, this.image2];
-      this.likeAmount = 3;
+      this.likes = 3;
       this.date = new Date;
       this.tags = [this.tag1, this.tag2, {name: 'Alice'}, {name: 'Frankenstein'}];
     } else {
@@ -57,24 +57,27 @@ export class PostComponent implements OnInit {
           this.text = post.text;
           this.tags = post.tags;
           this.date = post.date;
-          this.likeAmount = post.likeAmount;
+          this.likes = post.likes;
         });
       // }
     }
   }
 
   likeThisPost() {
-    this.likeAmount = Number(this.likeAmount) + 1;
-    this.post.likeAmount = this.likeAmount;
+    console.log(this.post.likes);
+    this.post.likes++;
+    console.log(this.post.likes)
+    console.log('this is the POST', this.post);
     this.postService.updatePost(this.ID, this.post)
       .subscribe((post) => {
-        this.post = post;
+      this.router.navigate(['user/' + this.userId]);
+        // this.post = post;
       });
   }
 
   removeMyTag() {
     // SPLICE This stuff
-    this.postService.updatePost(this.ID, this.post)
+    this.postService.deletePost(this.ID)
       .subscribe((post) => {
         this.post = post;
       });

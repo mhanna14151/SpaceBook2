@@ -61,7 +61,7 @@ module.exports = function (app) {
 
 
   function updatePost(req, res) {
-    var postId = req.params['uid'];
+    var postId = req.params['pid'];
     var updatedPost = req.body;
     postModel
       .updatePost(postId, updatedPost)

@@ -1,115 +1,115 @@
-<!--Version to be nested-->
+<!--&lt;!&ndash;Version to be nested&ndash;&gt;-->
 
-<!--<nav class="navbar navbar-default_blue navbar-fixed-top">-->
-  <!--<div class="container-fluid row">-->
-    <!--<p class="navbar-header mb-navbar-padding pull-left">-->
-      <!--<a class="navbar-brand thick">-->
-        <b class="jj-font">
-          Search
-        </b>
-      <!--</a>-->
-    <!--</p>-->
-    <p class="navbar-header mb-input-padding">
-    <input name="search"
-           id="search"
-           type="text"
-           placeholder="search here"
-           class="form-control"
-           ngModel
-           required
-           #searchField="ngModel"/></p>
-    <p class="navbar-text">
-      <button (click)="search(searchField.value)" type="submit" class="navbar-link jj-button">
-        <span class="jj-button-text glyphicon glyphicon-search"></span>
-      </button>
-    </p>
-  <!--</div>-->
-<!--</nav>-->
-<!--<br>-->
-<!--<br>-->
-<!--<br>-->
-<div *ngIf="peopleReady">
-<br>
-<p>
-  People Results:
-  <br>
-</p>
-  <div *ngFor="let person of userResult">
-    <app-search-profile [user]="person"></app-search-profile>
-  </div>
-</div>
-<div *ngIf="postReady">
-<p>
-  Post Results: (not working yet)
-  <br>
-</p>
-</div>
-<div *ngIf="nasaReady">
-<p>
-  Nasa Results:
-  <br>
-</p>
-  <div *ngFor="let object of nasaResult">
-    <app-search-nasa [nasaObject]="object"></app-search-nasa>
-  </div>
-
-</div>
-
-
-
-<!--Old version stable version from Miles:-->
-
-<!--<nav class="navbar navbar-default_blue navbar-fixed-top">-->
-  <!--<div class="container-fluid row">-->
-    <!--<p class="navbar-header mb-navbar-padding pull-left">-->
-      <!--<a class="navbar-brand thick">-->
+<!--&lt;!&ndash;<nav class="navbar navbar-default_blue navbar-fixed-top">&ndash;&gt;-->
+  <!--&lt;!&ndash;<div class="container-fluid row">&ndash;&gt;-->
+    <!--&lt;!&ndash;<p class="navbar-header mb-navbar-padding pull-left">&ndash;&gt;-->
+      <!--&lt;!&ndash;<a class="navbar-brand thick">&ndash;&gt;-->
         <!--<b class="jj-font">-->
           <!--Search-->
         <!--</b>-->
-      <!--</a>-->
-    <!--</p>-->
+      <!--&lt;!&ndash;</a>&ndash;&gt;-->
+    <!--&lt;!&ndash;</p>&ndash;&gt;-->
     <!--<p class="navbar-header mb-input-padding">-->
-      <!--<input name="search"-->
-             <!--id="search"-->
-             <!--type="text"-->
-             <!--placeholder="search here"-->
-             <!--class="form-control"-->
-             <!--ngModel-->
-             <!--required-->
-             <!--#searchField="ngModel"/></p>-->
-    <!--<p class="navbar-text pull-right">-->
+    <!--<input name="search"-->
+           <!--id="search"-->
+           <!--type="text"-->
+           <!--placeholder="search here"-->
+           <!--class="form-control"-->
+           <!--ngModel-->
+           <!--required-->
+           <!--#searchField="ngModel"/></p>-->
+    <!--<p class="navbar-text">-->
       <!--<button (click)="search(searchField.value)" type="submit" class="navbar-link jj-button">-->
         <!--<span class="jj-button-text glyphicon glyphicon-search"></span>-->
       <!--</button>-->
     <!--</p>-->
-  <!--</div>-->
-<!--</nav>-->
-<!--<br>-->
-<!--<br>-->
-<!--<br>-->
+  <!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--&lt;!&ndash;</nav>&ndash;&gt;-->
+<!--&lt;!&ndash;<br>&ndash;&gt;-->
+<!--&lt;!&ndash;<br>&ndash;&gt;-->
+<!--&lt;!&ndash;<br>&ndash;&gt;-->
 <!--<div *ngIf="peopleReady">-->
+<!--<br>-->
+<!--<p>-->
+  <!--People Results:-->
   <!--<br>-->
-  <!--<p>-->
-    <!--People Results:-->
-    <!--<br>-->
-  <!--</p>-->
+<!--</p>-->
   <!--<div *ngFor="let person of userResult">-->
     <!--<app-search-profile [user]="person"></app-search-profile>-->
   <!--</div>-->
 <!--</div>-->
 <!--<div *ngIf="postReady">-->
-  <!--<p>-->
-    <!--Post Results: (not working yet)-->
-    <!--<br>-->
-  <!--</p>-->
+<!--<p>-->
+  <!--Post Results: (not working yet)-->
+  <!--<br>-->
+<!--</p>-->
 <!--</div>-->
 <!--<div *ngIf="nasaReady">-->
-  <!--<p>-->
-    <!--Nasa Results:-->
-    <!--<br>-->
-  <!--</p>-->
+<!--<p>-->
+  <!--Nasa Results:-->
+  <!--<br>-->
+<!--</p>-->
   <!--<div *ngFor="let object of nasaResult">-->
     <!--<app-search-nasa [nasaObject]="object"></app-search-nasa>-->
   <!--</div>-->
 
 <!--</div>-->
+
+
+
+<!--Old version stable version from Miles:-->
+
+<nav class="navbar navbar-default_blue navbar-fixed-top">
+  <div class="container-fluid row">
+    <p class="navbar-header mb-navbar-padding pull-left">
+      <a class="navbar-brand thick">
+        <b class="jj-font">
+          Search
+        </b>
+      </a>
+    </p>
+    <p class="navbar-header mb-input-padding">
+      <input name="search"
+             id="search"
+             type="text"
+             placeholder="search here"
+             class="form-control"
+             ngModel
+             required
+             #searchField="ngModel"/></p>
+    <p class="navbar-text pull-right">
+      <button (click)="search(searchField.value)" type="submit" class="navbar-link jj-button">
+        <span class="jj-button-text glyphicon glyphicon-search"></span>
+      </button>
+    </p>
+  </div>
+</nav>
+<br>
+<br>
+<br>
+<div *ngIf="peopleReady">
+  <br>
+  <p>
+    People Results:
+    <br>
+  </p>
+  <div *ngFor="let person of userResult">
+    <app-search-profile [user]="person"></app-search-profile>
+  </div>
+</div>
+<div *ngIf="postReady">
+  <p>
+    Post Results: (not working yet)
+    <br>
+  </p>
+</div>
+<div *ngIf="nasaReady">
+  <p>
+    Nasa Results:
+    <br>
+  </p>
+  <div *ngFor="let object of nasaResult">
+    <app-search-nasa [nasaObject]="object"></app-search-nasa>
+  </div>
+
+</div>
