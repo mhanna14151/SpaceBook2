@@ -31,7 +31,7 @@ const APP_ROUTES: Routes = [
   {path: 'nasa-pic/:imgid/details', component: NasaPictureDetailsComponent},
   {path: 'testPostComponent', component: PostComponent}, // these paths are temporary, will likely be renamed
   {path: 'testListComponent', component: PostListComponent}, // these paths are temporary, will likely be renamed.
-  {path: 'cb/:cbid', component: CelestialBodyComponent}
+  {path: 'cb/:cbid', component: CelestialBodyComponent},
   {path: 'user/:uid/posts/new', component: CreatePostComponent}
   // so on
 ];
