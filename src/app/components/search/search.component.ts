@@ -3,6 +3,7 @@ import {NgForm} from '@angular/forms';
 import {UserService} from '../../services/user.service.client';
 import {PostService} from '../../services/post.service.client';
 import {NasaServiceClient} from '../../services/nasa.service.client';
+import {CBService} from '../../services/cb.service.client';
 
 @Component({
   selector: 'app-search',
@@ -14,14 +15,17 @@ export class SearchComponent implements OnInit {
   searchparam: string;
   searchResult: any;
   userResult = [];
+  cbResult = [];
   postResult = [];
   nasaResult = [];
   searchResultString = '';
   peopleReady = false;
   nasaReady = false;
   postReady = false;
+  cbReady = false;
 
-  constructor(private postService: PostService, private nasaService: NasaServiceClient, private userService: UserService) { }
+  constructor(private cbService: CBService, private postService: PostService,
+              private nasaService: NasaServiceClient, private userService: UserService) { }
 
   ngOnInit() {
   }
@@ -39,6 +43,10 @@ export class SearchComponent implements OnInit {
         this.searchResultString += JSON.stringify(imgresponse) + '&nbsp&nbsp';
         this.nasaReady = true ;
       });
+    this.cbService.findCBbyText(param).subscribe((response: any) => {
+      this.cbResult.push(response);
+      this.cbReady = true;
+    });
 
   }
 
