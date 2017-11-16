@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {UserService} from '../../services/user.service.client';
+import {CBService} from '../../services/cb.service.client';
 
 @Component({
   selector: 'app-celestial-body',
@@ -9,7 +9,7 @@ import {UserService} from '../../services/user.service.client';
 })
 export class CelestialBodyComponent implements OnInit {
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute, private userService: UserService) { }
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private cbService: CBService) { }
   cbId: String;
   name: String;
   region: String;
@@ -21,21 +21,15 @@ export class CelestialBodyComponent implements OnInit {
     this.activatedRoute.params
       .subscribe(
         (params: any) => {
-          this.cbId = params['cbId'];
-        }
-      );
-    this.userService.findUserById(this.cbId)
-      .subscribe( (cb: any) => {
-        const f = [];
-        this.name = cb['name'];
-        this.region = cb['region'];
-        this.picture = cb['picture'];
-      });
-  }
-
-
-  goToUserProfile(userId) {
-    this.router.navigate(['user/' + userId]);
+          this.cbId = params['cbid'];
+          this.cbService.findCBbyId(this.cbId)
+            .subscribe((cb: any) => {
+              const f = [];
+              this.name = cb['name'];
+              this.region = cb['region'];
+              this.picture = cb['picture'];
+            });
+        });
   }
 
 
