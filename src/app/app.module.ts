@@ -17,19 +17,18 @@ import {NasaServiceClient} from './services/nasa.service.client';
 import {CBService} from './services/cb.service.client';
 import { RegisterComponent } from './components/user/register/register.component';
 import { ProfileComponent } from './components/user/profile/profile.component';
-import { PublicProfileComponent } from './components/user/public-profile/public-profile.component';
-
 import {ApodComponent} from './components/apod/apod.component';
 import {FrontPageComponent} from './components/user/front-page/front-page.component';
 import {ApodarchiveComponent} from './components/apodarchive/apodarchive.component';
 import { PostComponent } from './components/post/post.component';
 import { PostListComponent } from './components/post-list/post-list.component';
+import {PublicProfileComponent} from './components/user/public-profile/public-profile.component';
+import { CreatePostComponent } from './components/create-post/create-post.component';
 import { SearchComponent } from './components/search/search.component';
 import { SearchProfileComponent } from './components/search/search-profile/search-profile.component';
 import { SearchNasaComponent } from './components/search/search-nasa/search-nasa.component';
 import { CelestialBodyComponent } from './components/celestial-body/celestial-body.component';
 import { SearchCbComponent } from './components/search/search-cb/search-cb.component';
-
 
 @NgModule({
   // Declare components here
@@ -44,9 +43,10 @@ import { SearchCbComponent } from './components/search/search-cb/search-cb.compo
     SpaceBannerDefaultComponent,
     RegisterComponent,
     ProfileComponent,
-    PublicProfileComponent,
     PostComponent,
     PostListComponent,
+    PublicProfileComponent,
+    CreatePostComponent,
     SearchComponent,
     SearchProfileComponent,
     SearchNasaComponent,
