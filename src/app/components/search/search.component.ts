@@ -28,6 +28,16 @@ export class SearchComponent implements OnInit {
               private nasaService: NasaServiceClient, private userService: UserService) { }
 
   ngOnInit() {
+    /*
+    const pluto = {name: 'Pluto', region: 'Sol System', type: 'Celestial Dwarf',
+      picture: 'http://pluto.jhuapl.edu/Multimedia/Science-Photos/pics/P_COLOR2_enhanced_release.jpg'};
+    this.cbService.createCB(pluto).subscribe((res: any) => {
+      console.log(res);
+      console.log('Pluto made!');
+
+    });
+    */
+
   }
 
   search(param: string) {
@@ -35,17 +45,24 @@ export class SearchComponent implements OnInit {
     console.log('searching for', param) ;
     this.searchparam = param;
     this.userService.findUserByUsername(param).subscribe((response: any) => {
+      if (response != null) {
       this.userResult.push(response);
       this.peopleReady = true;
+      }
     });
       this.nasaService.searchImg(param).subscribe((imgresponse: any) => {
-        this.nasaResult = imgresponse.collection.items;
-        this.searchResultString += JSON.stringify(imgresponse) + '&nbsp&nbsp';
-        this.nasaReady = true ;
+        if (imgresponse != null) {
+          this.nasaResult = imgresponse.collection.items;
+          this.searchResultString += JSON.stringify(imgresponse) + '&nbsp&nbsp';
+          this.nasaReady = true ;
+        }
       });
     this.cbService.findCBbyText(param).subscribe((response: any) => {
-      this.cbResult.push(response);
-      this.cbReady = true;
+      if (response != null) {
+        this.cbResult = response;
+        this.cbReady = true;
+        console.log(this.cbResult);
+      }
     });
 
   }

@@ -11,7 +11,7 @@ export class SearchCbComponent implements OnInit {
 
   @Input()
   cb: any;
-  profilePic: string;
+  picture: string;
   name: string;
   cbId: string;
   originalUserId: String;
@@ -26,11 +26,11 @@ export class SearchCbComponent implements OnInit {
       .subscribe((params: any) => {
         this.originalUserId = params['uid'];
       });
-    this.profilePic = this.cb.image;
+    this.picture = this.cb.picture;
     this.name = this.cb.name;
     this.cbId = this.cb._id;
     this.errorFlag = false;
-    console.log(this.errorMessage);
+    console.log(this.picture);
   }
 
 

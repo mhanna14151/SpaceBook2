@@ -11,7 +11,7 @@ CBModel.deleteCB = deleteCB;
 module.exports = CBModel;
 
 function findCBsByText(text) {
-  return CBModel.find({$**: text);
+  return CBModel.find({'name': text});
 }
 
 
