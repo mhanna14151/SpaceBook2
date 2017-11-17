@@ -9,11 +9,12 @@ import {ApodComponent} from './components/apod/apod.component';
 import {ApodarchiveComponent} from './components/apodarchive/apodarchive.component';
 import {RegisterComponent} from './components/user/register/register.component';
 import {ProfileComponent} from './components/user/profile/profile.component';
-import {PublicProfileComponent} from './components/user/public-profile/public-profile.component';
 import {PostComponent} from './components/post/post.component';
 import {PostListComponent} from './components/post-list/post-list.component';
+import {PublicProfileComponent} from './components/user/public-profile/public-profile.component';
+import {CreatePostComponent} from './components/create-post/create-post.component';
 import {SearchComponent} from './components/search/search.component';
-
+import {CelestialBodyComponent} from "./components/celestial-body/celestial-body.component";
 
 
 const APP_ROUTES: Routes = [
@@ -29,7 +30,9 @@ const APP_ROUTES: Routes = [
   {path: 'APOD/Archive', component: ApodarchiveComponent},
   {path: 'nasa-pic/:imgid/details', component: NasaPictureDetailsComponent},
   {path: 'testPostComponent', component: PostComponent}, // these paths are temporary, will likely be renamed
-  {path: 'testListComponent', component: PostListComponent} // these paths are temporary, will likely be renamed.
+  {path: 'testListComponent', component: PostListComponent}, // these paths are temporary, will likely be renamed.
+  {path: 'cb/:cbid', component: CelestialBodyComponent},
+  {path: 'user/:uid/posts/new', component: CreatePostComponent}
   // so on
 ];
 

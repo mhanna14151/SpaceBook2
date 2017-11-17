@@ -7,7 +7,7 @@
   </div>
 
   <h1>Register</h1>
-  <form (ngSubmit)="register(username.value, password.value, email.value, firstName.value, lastName.value)" #f="ngForm">
+  <form (ngSubmit)="register(username.value, password.value, email.value, firstName.value, lastName.value, DOB.value)" #f="ngForm">
     <input name="username"
            id="username"
            type="text"
@@ -116,4 +116,3 @@
     Cancel
   </button>
 </div>
-

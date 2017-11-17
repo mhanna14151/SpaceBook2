@@ -1,3 +1,5 @@
+<app-space-banner-default></app-space-banner-default>
+
 <div class="container-fluid">
   <div *ngIf="birthday"
        class="alert alert-danger">
@@ -26,5 +28,11 @@
           (click)="search()">
     Search
   </button>
+  <div class = "container-fluid">
+  <app-create-post (click)="ngOnInit()"></app-create-post>
+
+  </div>
 </div>
 
+
+<app-post-list [posts] = "postsInPublicProfile" (click)="ngOnInit()"></app-post-list>

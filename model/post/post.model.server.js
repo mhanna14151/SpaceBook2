@@ -8,6 +8,8 @@ PostModel.createPost = createPost;
 PostModel.findPostsByTags = findPostsByTags;
 PostModel.deletePost = deletePost;
 PostModel.updatePost = updatePost;
+PostModel.findAllPosts = findAllPosts;
+PostModel.findPostsByUser = findPostsByUser;
 
 module.exports = PostModel;
 
@@ -28,23 +30,35 @@ function findPostsByTags(tags) {
 }
 
 function findPostsByTag(tag) {
-  var query = Model.where({tags: tag}).limit(20).sort('date', -1, 'likes', 1);
+  var query = PostModel.where({tags: tag}).limit(20).sort('date');
   return query.exec();
 }
 
-function createPost (post) {
+function findAllPosts() {
+  return PostModel.find();
+}
+
+function createPost(post) {
+  console.log('Model create post');
+  console.log('post', post);
   return PostModel.create(post);
 }
 
 function findPostById(postId) {
-  return PostModel.findById(postId);
+  return PostModel.findOne({_id: postId});
 }
 
 function updatePost(postId, post) {
-  return PostModel.update({_id: postId}, post);
+  return PostModel.updateOne({_id: postId}, post);
 }
 
 function deletePost(postId) {
   return PostModel.remove({_id: postId});
+}
+
+function findPostsByUser(userId) {
+  return PostModel.find({poster: userId});
+    // .populate('poster')
+    // .exec();
 }
 

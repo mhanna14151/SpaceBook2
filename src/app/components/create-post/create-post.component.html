@@ -1,0 +1,40 @@
+<!--<app-space-banner-default></app-space-banner-default>-->
+
+
+<div class = "container-fluid">
+  <!--<label>Original Poster</label>-->
+  <!--<div class = "form-control">{{usernameOfPoster}}</div>-->
+  <label>Text</label>
+  <input class="form-control"
+         type="text"
+         id="text"
+         placeholder="Text regarding post"
+         [(ngModel)] ="text" name ="text">
+  <!--<label>Images</label>-->
+  <!--<input type="url"-->
+         <!--class='form-control'-->
+         <!--placeholder="https://res.cloudinary.com/demo/image/upload/sample.jpg"-->
+         <!--[(ngModel)] = "url" name = "url">-->
+  <!--<label>Width</label>-->
+  <!--<input type="text" class="form-control"-->
+         <!--placeholder="1-100%"-->
+         <!--id = "width"-->
+         <!--[(ngModel)] = "width" name = "width">-->
+  <!--<label>Tags</label>-->
+  <!--<input type="text" class = "form-control" id = "tags"-->
+         <!--[(ngModel)] = "tags" name = "tags">-->
+  <!--<label>Upload</label>-->
+  <!--<form ngNoForm action="{{baseUrl}}/api/upload" method="post" enctype="multipart/form-data">-->
+  <!--<input  name="myFile"   type="file" class="form-control"/>-->
+  <!--<input  name="widgetId" value="{{widgetID}}"   style="display: none"/>-->
+  <!--<input  name="websiteId" value="{{websiteID}}"   style="display: none"/>-->
+  <!--<input  name="pageId" value="{{pageID}}"   style="display: none"/>-->
+  <!--<input  name="userId" value="{{userID}}"   style="display: none"/>-->
+  <!--<button type="submit" class="btn btn-block btn-primary"-->
+  <!--(click)="updateWidgetImage(widgetID, text, width, url)">Upload Image</button>-->
+  <!--<br/>-->
+  <!--</form>-->
+  <a class = "btn btn-success" (click)="createThisPost()">Create Post</a>
+  <a class="btn btn-danger"
+     (click)="deleteThisPost(postId)">Cancel</a>
+</div>

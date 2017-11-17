@@ -10,5 +10,6 @@ module.exports = function (app) {
   db = require("../model/model.server");
   require("./services/user.service.server")(app);
   require("./services/post.service.server")(app);
+  require("./services/cb.service.server")(app);
 };
 
