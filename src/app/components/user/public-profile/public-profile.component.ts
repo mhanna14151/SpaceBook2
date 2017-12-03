@@ -29,27 +29,27 @@ export class PublicProfileComponent implements OnInit {
   dataReady: boolean;
 
   ngOnInit() {
-    this.objType = 'USER';
     this.dataReady = false;
     this.activatedRoute.params
       .subscribe(
         (params: any) => {
           this.objId = params['uid'];
+          this.objType = params['obtype'];
         }
       );
     this.birthday = false;
 
     switch (this.objType) {
 
-      case 'CB':
+      case 'cb':
         this.getCBData(this.objId);
         break;
-      case 'CE':
+      case 'ce':
         break;
-      case 'USER':
+      case 'user':
         this.getUserData(this.objId);
         break;
-      case 'ORG':
+      case 'org':
         break;
 
     }
