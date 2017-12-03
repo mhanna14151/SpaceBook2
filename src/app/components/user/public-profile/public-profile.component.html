@@ -1,23 +1,33 @@
 <app-space-banner-default></app-space-banner-default>
-
-<div class="container-fluid">
-  <div *ngIf="birthday"
-       class="alert alert-danger">
-    {{birthdayMsg}}
-  </div>
-  <button class="jj-button-profile jj-card" (click)="editProfile()">
-    <img class="jj-img-padding" src="{{picture}}">
-    <div class="jj-container">
-      <h4><b>{{firstName}} {{lastName}}</b></h4>
+<div *ngIf="dataReady">
+  <div class="container-fluid row">
+    <div *ngIf="birthday"
+         class="alert alert-danger">
+      {{birthdayMsg}}
     </div>
-  </button>
-<div>
-  <h1>FOLLOWS</h1>
-  <div *ngFor="let user of follows">
-    <button (click)="goToUserProfile(user._id)">{{user.firstName}} {{user.lastName}}</button>
-    <button (click)="deleteFollow(user._id)"><span class="glyphicon glyphicon-remove"></span> </button>
+    <button class="jj-button-profile jj-card" (click)="editProfile()">
+      <img class="jj-img-padding" src="{{objData.picture}}">
+      <div class="jj-container">
+        <div [ngSwitch]="objType">
+          <div *ngSwitchCase="'USER'">
+            <h4><b>{{objData.firstName}} {{objData.lastName}}</b></h4>
+          </div>
+        </div>
+      </div>
+    </button>
+    <div [ngSwitch]="objType">
+      <div *ngSwitchCase="'USER'">
+        Data Go Here
+      </div>
+    </div>
   </div>
-</div>
+  <div class="container-fluid">
+    <h2>FOLLOWS</h2>
+    <div *ngFor="let user of follows">
+      <button (click)="goToUserProfile(user._id)">{{user.firstName}} {{user.lastName}}</button>
+      <button (click)="deleteFollow(user._id)"><span class="glyphicon glyphicon-remove"></span></button>
+    </div>
+  </div>
   <button class="btn btn-warning btn-block jj-button-hover"
           aria-pressed="true"
           [routerLink]="['/login']">
@@ -28,11 +38,12 @@
           (click)="search()">
     Search
   </button>
-  <div class = "container-fluid">
-  <app-create-post (click)="ngOnInit()"></app-create-post>
+  <div class="container-fluid">
+    <app-create-post (click)="ngOnInit()"></app-create-post>
 
   </div>
 </div>
 
 
-<app-post-list [posts] = "postsInPublicProfile" (click)="ngOnInit()"></app-post-list>
+<app-post-list [posts]="postsInPublicProfile" (click)="ngOnInit()"></app-post-list>
+

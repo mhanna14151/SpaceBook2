@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {UserService} from '../../../services/user.service.client';
 import {PostService} from '../../../services/post.service.client';
+import {CBService} from '../../../services/cb.service.client';
 
 @Component({
   selector: 'app-public-profile',
@@ -14,32 +15,83 @@ export class PublicProfileComponent implements OnInit {
   constructor(private router: Router,
               private activatedRoute: ActivatedRoute,
               private userService: UserService,
-              private postService: PostService) { }
-  userId: String;
-  firstName: String;
-  lastName: String;
-  picture: String;
+              private postService: PostService,
+              private cbService: CBService) { }
+  objType: String;
+  objId: String;
+  objData = {};
   follows: any[];
   birthday: Boolean;
   DOB: String;
   today = new Date();
   birthdayMsg = 'Happy Birthday!';
   postsInPublicProfile: any[];
-  
+  dataReady: boolean;
+
   ngOnInit() {
+    this.objType = 'USER';
+    this.dataReady = false;
     this.activatedRoute.params
       .subscribe(
         (params: any) => {
-          this.userId = params['uid'];
+          this.objId = params['uid'];
         }
       );
     this.birthday = false;
-    this.userService.findUserById(this.userId)
+
+    switch (this.objType) {
+
+      case 'CB':
+        this.getCBData(this.objId);
+        break;
+      case 'CE':
+        break;
+      case 'USER':
+        this.getUserData(this.objId);
+        break;
+      case 'ORG':
+        break;
+
+    }
+
+
+    this.postService.findPostsByUser(this.objId)
+      .subscribe((posts) => {
+      this.postsInPublicProfile = posts;
+      });
+    console.log(this.follows);
+  }
+
+  editProfile() {
+    this.router.navigate(['user/' + this.objId + '/edit']);
+  }
+
+  goToUserProfile(objId) {
+    this.router.navigate(['user/' + objId]);
+  }
+
+  navigateToPost() {
+    this.router.navigate(['user/' + this.objId + '/posts/new']);
+
+  }
+
+  search() {
+    this.router.navigate(['user/' + this.objId + '/search']);
+  }
+
+  getCBData(objId){
+    this.cbService.findCBbyId(this.objId).subscribe((cb:any) => {
+        this.objData = cb;
+        this.follows = [];
+        this.dataReady = true;
+    });
+  }
+
+  getUserData(objId){
+    this.userService.findUserById(this.objId)
       .subscribe( (user: any) => {
         var f = [];
-        this.firstName = user['firstName'];
-        this.lastName = user['lastName'];
-        this.picture = user['picture'];
+        this.objData = user;
         this.DOB = user['DOB'];
         if((this.DOB[5]+this.DOB[6] === (this.today.getUTCMonth()+1).toString()) && (this.DOB[8]+this.DOB[9] === this.today.getUTCDate().toString())) {
           this.birthday = true;
@@ -51,40 +103,19 @@ export class PublicProfileComponent implements OnInit {
             });
           this.follows = f;
         }
+        this.dataReady = true;
       });
-    this.postService.findPostsByUser(this.userId)
-      .subscribe((posts) => {
-      this.postsInPublicProfile = posts;
-      });
-    console.log(this.follows);
   }
 
-  editProfile() {
-    this.router.navigate(['user/' + this.userId + '/edit']);
-  }
-
-  goToUserProfile(userId) {
-    this.router.navigate(['user/' + userId]);
-  }
-
-  navigateToPost() {
-    this.router.navigate(['user/' + this.userId + '/posts/new']);
-
-  }
-
-  search() {
-    this.router.navigate(['user/' + this.userId + '/search']);
-  }
-
-  deleteFollow(userId) {
-    console.log(userId);
+  deleteFollow(objId) {
+    console.log(objId);
     for(var i = 0; i < this.follows.length; i++) {
-      if (this.follows[i]._id === userId) {
+      if (this.follows[i]._id === objId) {
         this.follows.splice(i, 1);
       }
     }
     console.log('SAVED ONES ', this.follows);
-    this.userService.findUserById(this.userId)
+    this.userService.findUserById(this.objId)
       .subscribe((user: any) => {
         console.log('PREVIOUS USER.FOLLOWS ', user.follows);
         user.follows = [];
@@ -92,7 +123,7 @@ export class PublicProfileComponent implements OnInit {
           user.follows.push(this.follows[i]._id)
         }
         console.log('UPDATED USER.FOLLOWS ', user.follows);
-        this.userService.updateUser(this.userId, user)
+        this.userService.updateUser(this.objId, user)
           .subscribe((usr: any) => {
           });
       });
