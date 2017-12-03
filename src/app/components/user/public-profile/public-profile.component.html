@@ -29,10 +29,11 @@
     Search
   </button>
   <div class = "container-fluid">
-  <app-create-post (click)="ngOnInit()"></app-create-post>
+  <app-create-post></app-create-post>
 
   </div>
 </div>
 
 
-<app-post-list [posts] = "postsInPublicProfile" (click)="ngOnInit()"></app-post-list>
+<!--<app-post-list [posts] = "postsInPublicProfile" (click)="ngOnInit()"></app-post-list>-->
+<app-post-list [posts] = "postsInPublicProfile" [IDfromProfile] = "userId"></app-post-list>

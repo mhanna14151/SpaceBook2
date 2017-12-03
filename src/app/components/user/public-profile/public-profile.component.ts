@@ -25,7 +25,7 @@ export class PublicProfileComponent implements OnInit {
   today = new Date();
   birthdayMsg = 'Happy Birthday!';
   postsInPublicProfile: any[];
-  
+
   ngOnInit() {
     this.activatedRoute.params
       .subscribe(

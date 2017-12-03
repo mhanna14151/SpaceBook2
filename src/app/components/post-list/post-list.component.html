@@ -1,5 +1,7 @@
 <div *ngFor="let post of posts" class = 'borderless'>
-  <app-post [ID] = "post._id"></app-post>
+  <app-post [ID] = "post._id">
+  </app-post>
+  <button (click)="removeMyTag(post._id)"></button>
 </div>
 
 
