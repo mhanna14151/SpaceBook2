@@ -29,6 +29,8 @@ import { SearchProfileComponent } from './components/search/search-profile/searc
 import { SearchNasaComponent } from './components/search/search-nasa/search-nasa.component';
 import { CelestialBodyComponent } from './components/celestial-body/celestial-body.component';
 import { SearchCbComponent } from './components/search/search-cb/search-cb.component';
+import { UserPicturesComponent } from './components/user-pictures/user-pictures.component';
+import { UserAlbumComponent } from './components/user-album/user-album.component';
 
 @NgModule({
   // Declare components here
@@ -52,6 +54,8 @@ import { SearchCbComponent } from './components/search/search-cb/search-cb.compo
     SearchNasaComponent,
     CelestialBodyComponent,
     SearchCbComponent,
+    UserPicturesComponent,
+    UserAlbumComponent,
 
   ],
   imports: [
