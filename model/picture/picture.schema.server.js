@@ -8,6 +8,6 @@ var PictureSchema = mongoose.Schema({
   width: String,
   height: String,
   dateUploaded: Date
-}, {collection: 'user_pictures'});
+}, {collection: 'picture'});
 
 module.exports = PictureSchema;

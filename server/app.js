@@ -11,5 +11,7 @@ module.exports = function (app) {
   require("./services/user.service.server")(app);
   require("./services/post.service.server")(app);
   require("./services/cb.service.server")(app);
+  require("./services/picture.service.server")(app);
+  require("./services/album.service.server")(app);
 };
 
