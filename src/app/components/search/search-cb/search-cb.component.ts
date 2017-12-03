@@ -33,5 +33,8 @@ export class SearchCbComponent implements OnInit {
     console.log(this.picture);
   }
 
+  addToFollow(cbId) {
+  }
+
 
 }

@@ -1,4 +1,10 @@
+<app-space-banner-default></app-space-banner-default>
+
 <div class="container-fluid">
+  <div *ngIf="birthday"
+       class="alert alert-danger">
+    {{birthdayMsg}}
+  </div>
   <button class="jj-button-profile jj-card" (click)="editProfile()">
     <img class="jj-img-padding" src="{{picture}}">
     <div class="jj-container">
@@ -22,5 +28,11 @@
           (click)="search()">
     Search
   </button>
+  <div class = "container-fluid">
+  <app-create-post (click)="ngOnInit()"></app-create-post>
+
+  </div>
 </div>
 
+
+<app-post-list [posts] = "postsInPublicProfile" (click)="ngOnInit()"></app-post-list>

@@ -7,7 +7,7 @@ var UserSchema = mongoose.Schema({
   email: String,
   phone: String,
   verified: Boolean,
-  DOB: Date,
+  DOB: String,
   picture: String,
   follows: [String]
 }, {collection: 'user'});
