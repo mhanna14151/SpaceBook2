@@ -28,7 +28,18 @@ export class PostListComponent implements OnInit {
 
   }
 
+  removeMyTag(ID) {
+  this.postService.deletePost(ID)
+    .subscribe((post) => {
+      this.postService.findPostsByUser(this.IDfromProfile)
+        .subscribe((posts) => {
+          this.posts = posts;
+        });
+    });
+  }
+
 }
+
   // this.route.params.subscribe(params => {
     //   this.userId = params['uid'];
     //   console.log('Post-list: userId is: ', this.userId);
