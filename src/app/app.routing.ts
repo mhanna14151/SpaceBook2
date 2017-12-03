@@ -19,20 +19,20 @@ import {CelestialBodyComponent} from "./components/celestial-body/celestial-body
 
 const APP_ROUTES: Routes = [
   {path: 'register', component: RegisterComponent},
-  {path: 'user/:uid', component: PublicProfileComponent},
-  {path: 'user/:uid/edit', component: ProfileComponent},
+  {path: ':obtype/:uid', component: PublicProfileComponent},
+  {path: ':obtype/:uid/edit', component: ProfileComponent},
   {path: 'searchAsteroids', component: NasaTestComponent},
   {path: '', component: FrontPageComponent},
   {path: 'login', component: FrontPageComponent},
   {path: 'nasa-pic', component: NasaPictureTestComponent},
-  {path: 'user/:uid/search', component: SearchComponent},
+  {path: ':obtype/:uid/search', component: SearchComponent},
   {path: 'APOD', component: ApodComponent},
   {path: 'APOD/Archive', component: ApodarchiveComponent},
   {path: 'nasa-pic/:imgid/details', component: NasaPictureDetailsComponent},
   {path: 'testPostComponent', component: PostComponent}, // these paths are temporary, will likely be renamed
   {path: 'testListComponent', component: PostListComponent}, // these paths are temporary, will likely be renamed.
   {path: 'cb/:cbid', component: CelestialBodyComponent},
-  {path: 'user/:uid/posts/new', component: CreatePostComponent}
+  {path: ':obtype/:uid/posts/new', component: CreatePostComponent}
   // so on
 ];
 
