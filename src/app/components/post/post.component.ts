@@ -70,7 +70,8 @@ export class PostComponent implements OnInit {
     console.log('this is the POST', this.post);
     this.postService.updatePost(this.ID, this.post)
       .subscribe((post) => {
-      this.router.navigate(['user/' + this.userId]);
+      this.ngOnInit();
+      // this.router.navigate(['user/' + this.userId]);
         // this.post = post;
       });
   }
@@ -80,6 +81,7 @@ export class PostComponent implements OnInit {
     this.postService.deletePost(this.ID)
       .subscribe((post) => {
         this.post = post;
+        this.ngOnInit();
       });
 
   }
