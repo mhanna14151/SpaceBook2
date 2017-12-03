@@ -14,6 +14,11 @@
   padding-left: 15px;
 }
 
+.mb-img-max {
+  max-height: 200px;
+  max-width: 200px;
+}
+
 .jj-img-padding {
   padding-top: 25px;
   width: 100%;

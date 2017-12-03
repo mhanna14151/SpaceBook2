@@ -1,23 +1,39 @@
 <app-space-banner-default></app-space-banner-default>
-
-<div class="container-fluid">
-  <div *ngIf="birthday"
-       class="alert alert-danger">
-    {{birthdayMsg}}
-  </div>
-  <button class="jj-button-profile jj-card" (click)="editProfile()">
-    <img class="jj-img-padding" src="{{picture}}">
-    <div class="jj-container">
-      <h4><b>{{firstName}} {{lastName}}</b></h4>
+<div *ngIf="dataReady">
+  <div class="container-fluid row">
+    <div *ngIf="birthday"
+         class="alert alert-danger">
+      {{birthdayMsg}}
     </div>
-  </button>
-<div>
-  <h1>FOLLOWS</h1>
-  <div *ngFor="let user of follows">
-    <button (click)="goToUserProfile(user._id)">{{user.firstName}} {{user.lastName}}</button>
-    <button (click)="deleteFollow(user._id)"><span class="glyphicon glyphicon-remove"></span> </button>
+    <button class="jj-button-profile jj-card" (click)="editProfile()">
+      <img class="jj-img-padding mb-img-max" src="{{objData.picture}}">
+      <div class="jj-container">
+        <div [ngSwitch]="objType">
+          <div *ngSwitchCase="'user'">
+            <h4><b>{{objData.firstName}} {{objData.lastName}}</b></h4>
+          </div>
+          <div *ngSwitchCase="'cb'">
+            <h4><b>{{objData.name}} {{objData.region}}</b></h4>
+          </div>
+        </div>
+      </div>
+    </button>
+    <div [ngSwitch]="objType">
+      <div *ngSwitchCase="'user'">
+        Data Go Here
+      </div>
+      <div *ngSwitchCase="'cb'">
+        {{objData.wiki}}
+      </div>
+    </div>
   </div>
-</div>
+  <div class="container-fluid">
+    <h2>FOLLOWS</h2>
+    <div *ngFor="let user of follows">
+      <button (click)="goToUserProfile(user._id)">{{user.firstName}} {{user.lastName}}</button>
+      <button (click)="deleteFollow(user._id)"><span class="glyphicon glyphicon-remove"></span></button>
+    </div>
+  </div>
   <button class="btn btn-warning btn-block jj-button-hover"
           aria-pressed="true"
           [routerLink]="['/login']">
@@ -37,3 +53,4 @@
 
 <!--<app-post-list [posts] = "postsInPublicProfile" (click)="ngOnInit()"></app-post-list>-->
 <app-post-list [posts] = "postsInPublicProfile" [IDfromProfile] = "userId"></app-post-list>
+
