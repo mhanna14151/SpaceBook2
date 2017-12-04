@@ -1,0 +1,14 @@
+
+<div class="container-fluid">
+<form>
+  <select ng-model="objType">
+    <option ng-repeat="x in types" value="x">{{x}}</option>
+  </select>
+
+  <div ngSwitch="objType">
+    <div *ngSwitchCase="'User'">
+      USER WORKS
+    </div>
+  </div>
+</form>
+</div>

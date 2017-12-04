@@ -15,6 +15,7 @@ import {PublicProfileComponent} from './components/user/public-profile/public-pr
 import {CreatePostComponent} from './components/create-post/create-post.component';
 import {SearchComponent} from './components/search/search.component';
 import {CelestialBodyComponent} from "./components/celestial-body/celestial-body.component";
+import {CreateObjectComponent} from "./components/create-object/create-object.component";
 
 
 const APP_ROUTES: Routes = [
@@ -32,7 +33,8 @@ const APP_ROUTES: Routes = [
   {path: 'testPostComponent', component: PostComponent}, // these paths are temporary, will likely be renamed
   {path: 'testListComponent', component: PostListComponent}, // these paths are temporary, will likely be renamed.
   {path: 'cb/:cbid', component: CelestialBodyComponent},
-  {path: ':obtype/:uid/posts/new', component: CreatePostComponent}
+  {path: ':obtype/:uid/posts/new', component: CreatePostComponent},
+  {path: 'new', component: CreateObjectComponent}
   // so on
 ];
 
