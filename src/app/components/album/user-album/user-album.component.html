@@ -1,3 +1,35 @@
-<p>
-  user-album works!
-</p>
+<form>
+  <div class="form-group">
+    <label for="title">
+      Title
+    </label>
+    <input name="title"
+           id="title"
+           type="text"
+           placeholder="Planets"
+           class="form-control"
+           [(ngModel)]="title"
+           required/>
+    <span class="help-block" *ngIf="title.touched && !title.valid">
+      Please enter an album title!
+    </span>
+
+    <label for="description">
+      Description
+    </label>
+    <input [(ngModel)]="description"
+           id="description"
+           name="description"
+           placeholder="..."
+           class="form-control"
+           required/>
+    <span class="help-block" *ngIf="description.touched && !description.valid">
+      Please enter an album description!
+    </span>
+  </div>
+  <div *ngFor="let pic of pictures">
+    <button (click)="goToPicture(pic._id)">{{pic}}</button>
+  </div>
+  <button class="btn btn-block btn-primary jj-button-hover" (click)="commit(title, description)"></button>
+  <button class="btn btn-block btn-danger jj-button-hover" aria-pressed="true" (click)="deleted(albumId)">Delete</button>
+</form>

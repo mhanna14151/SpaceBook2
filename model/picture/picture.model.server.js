@@ -17,7 +17,7 @@ function createPicture(picture) {
     .create(picture)
     .then(function (pic) {
       newPicture = pic;
-      AlbumModel
+      return AlbumModel
         .findAlbumById(newPicture.albumId)
         .then(function (album) {
           album.pictures.push(newPicture);
@@ -50,10 +50,10 @@ function deletePicture(picId) {
     .then(function (picture) {
       pic1 = picture;
       albumId = picture.albumId;
-      PictureModel
+      return PictureModel
         .deleteOne({_id: picId})
         .then(function (pictures) {
-          AlbumModel
+          return AlbumModel
             .findAlbumById(albumId)
             .then(function (album) {
               i = album.pictures.indexOf(pic1);
