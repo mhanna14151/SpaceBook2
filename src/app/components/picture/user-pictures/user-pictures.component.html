@@ -29,28 +29,30 @@
       <!--<span class="help-block" *ngIf="text.touched && !text.valid"@TODO>-->
         <!--Please enter a description for this picture!-->
       <!--</span>-->
-      <label for="url">
-        URL
-      </label>
-      <input [(ngModel)]="url"
-             type="url"
-             placeholder="URL"
-             name="url"
-             id="url"
-             class="form-control"/>
-      <label for="width">
-        Width
-      </label>
-      <input
-        [(ngModel)]="width"
-        name="width"
-        id="width"
-        class="form-control"
-        type="text"
-      />
-      <button (click)="commit(picId, text, title, url, width)" aria-pressed="true" class="btn btn-primary btn-block jj-button-hover">
+      <!--<label for="url">-->
+        <!--URL-->
+      <!--</label>-->
+      <!--<input [(ngModel)]="url"-->
+             <!--type="url"-->
+             <!--placeholder="URL"-->
+             <!--name="url"-->
+             <!--id="url"-->
+             <!--class="form-control"/>-->
+      <!--<label for="width">-->
+        <!--Width-->
+      <!--</label>-->
+      <!--<input-->
+        <!--[(ngModel)]="width"-->
+        <!--name="width"-->
+        <!--id="width"-->
+        <!--class="form-control"-->
+        <!--type="text"-->
+      <!--/>-->
+      <button (click)="commit(picId, text, title, url, width)" aria-pressed="true" class="btn btn-success btn-block jj-button-hover">
         Commit
       </button>
+      <button (click)="goBackToAlbum()" class="btn btn-primary btn-block jj-button-hover"
+              aria-pressed="true">Cancel Changes</button>
       <button (click)="deleted(picId)" class="btn btn-danger btn-block jj-button-hover"
               aria-pressed="true">Delete</button>
     </div>

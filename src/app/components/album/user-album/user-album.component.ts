@@ -28,6 +28,7 @@ export class UserAlbumComponent implements OnInit {
       .subscribe((album: any) => {
         this.album = album;
         this.pictures = album['pictures'];
+        console.log(this.pictures);
         this.title = album['title'];
         this.description = album['description'];
       });
@@ -41,6 +42,7 @@ export class UserAlbumComponent implements OnInit {
   }
 
   goToPicture(picId) {
+    console.log(picId);
     this.router.navigate(['user/' + this.userId + '/album/' + this.albumId + '/pic/' + picId]);
   }
 

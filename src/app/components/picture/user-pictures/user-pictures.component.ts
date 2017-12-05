@@ -56,6 +56,10 @@ export class UserPicturesComponent implements OnInit {
       });
   }
 
+  goBackToAlbum() {
+    this.router.navigate(['user/' + this.userId + '/album/' + this.albumId]);
+  }
+
   deleted(picId) {
     this.pictureService.deletePicture(picId)
       .subscribe((pictures: any) => {

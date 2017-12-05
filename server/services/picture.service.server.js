@@ -1,9 +1,14 @@
 module.exports = function (app) {
+
+  var multer = require('multer');
+  var upload = multer({dest: __dirname + '/../../assets/uploads'});
+
   app.post('/api/album/:aid/pic', createPicture);
   app.get('/api/pic/:picid', findPictureById);
   app.get('/api/album/:aid/picture', findPicturesByAlbum);
   app.put('/api/pic/:picid', updatePicture);
   app.delete('/api/pic/:picid', deletePicture);
+  app.post('/api/upload', upload.single('myFile'), uploadImage);
 
   var pictureModel = require('../../model/picture/picture.model.server');
 
@@ -53,9 +58,41 @@ module.exports = function (app) {
   function deletePicture(req, res) {
     var picId = req.params['picid'];
     pictureModel
-      .deletePicuture(picId)
+      .deletePicture(picId)
       .then(function (pictures) {
         res.json(pictures);
+      });
+  }
+
+  function uploadImage(req, res) {
+    var pictureId = req.body.pictureId;
+    var width = req.body.width;
+    var myFile = req.file;
+    var userId = req.body.userId;
+    var albumId = req.body.albumId;
+
+    var originalName = myFile.originalname;
+    var fileName = myFile.filename;
+    var path = myFile.path;
+    var destination = myFile.destination;
+    var size = myFile.size;
+    var mimetype = myFile.mimetype;
+
+    var pic1 = null;
+    pictureModel
+      .findPictureById(pictureId)
+      .then(function (pic) {
+        pic1 = pic;
+        pic1['url'] = '/assets/uploads' + fileName;
+        pic1['width'] = width;
+        pic1['size'] = size;
+        pic1.save();
+        pictureModel
+          .updatePicture(pictureId, pic1)
+          .then(function (pic) {
+            var callbackUrl = '/user' + userId + '/album/' + albumId;
+            res.redirect(callbackUrl);
+          });
       });
   }
 };

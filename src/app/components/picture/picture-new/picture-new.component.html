@@ -29,28 +29,28 @@
       <!--<span class="help-block" *ngIf="text.touched && !text.valid"@TODO>-->
         <!--Please enter a description for this picture!-->
       <!--</span>-->
-      <label for="url">
-        URL
-      </label>
-      <input [(ngModel)]="url"
-      type="url"
-      placeholder="URL"
-      name="url"
-      id="url"
-      class="form-control"/>
-      <label for="width">
-        Width
-      </label>
-      <input
-        [(ngModel)]="width"
-        name="width"
-        id="width"
-        class="form-control"
-        type="text"
-      />
+      <!--<label for="url">-->
+        <!--URL-->
+      <!--</label>-->
+      <!--<input [(ngModel)]="url"-->
+      <!--type="url"-->
+      <!--placeholder="URL"-->
+      <!--name="url"-->
+      <!--id="url"-->
+      <!--class="form-control"/>-->
+      <!--<label for="width">-->
+        <!--Width-->
+      <!--</label>-->
+      <!--<input-->
+        <!--[(ngModel)]="width"-->
+        <!--name="width"-->
+        <!--id="width"-->
+        <!--class="form-control"-->
+        <!--type="text"-->
+      <!--/>-->
       <form ngNoForm action="{{baseURL}}/api/upload" method="post" enctype="multipart/form-data">
         <input name="myFile" type="file" class="form-control"/>
-        <input name="picId" value="{{picId}}" style="display: none"/>
+        <input name="pictureId" value="{{picId}}" style="display: none"/>
         <input name="albumId" value="{{albumId}}" style="display: none"/>
         <input name="userId" value="{{userId}}" style="display: none"/>
         <button (click)="commit(text, title, width, url)" type="submit" class="btn btn-block btn-primary jj-button-hover"

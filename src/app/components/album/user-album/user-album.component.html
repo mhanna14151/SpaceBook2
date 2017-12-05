@@ -28,7 +28,8 @@
     <!--</span>-->
   </div>
   <div *ngFor="let pic of pictures">
-    <button (click)="goToPicture(pic._id)">{{pic}}</button>
+    <button (click)="goToPicture(pic)">{{pic}}</button>
+    <!--<img class="jj-content" src="{{pic.url}}"/@TODO>-->
   </div>
   <button class="btn btn-block btn-success jj-button-hover" (click)="commit(title, description)">Commit</button>
   <button class="btn btn-block btn-danger jj-button-hover" aria-pressed="true" (click)="deleted(albumId)">Delete</button>

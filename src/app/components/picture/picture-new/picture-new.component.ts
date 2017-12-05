@@ -43,7 +43,7 @@ export class PictureNewComponent implements OnInit {
   }
 
   commit(text: String, title: String, width: String, url: String) {
-    this.pic = {text: text, title: title, width: width, url: url, dateUploaded: this.dateCreated, albumId: this.albumId}
+    this.pic = {text: text, title: title, width: width, url: url, dateUploaded: this.dateCreated, albumId: this.albumId};
     this.pictureService.createPicture(this.albumId, this.pic)
       .subscribe((album: any) => {
         this.router.navigate(['user/' + this.userId + '/album/' + this.albumId]);
