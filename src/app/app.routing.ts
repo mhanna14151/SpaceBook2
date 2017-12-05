@@ -19,6 +19,7 @@ import {UserAlbumComponent} from "./components/album/user-album/user-album.compo
 import {AlbumNewComponent} from "./components/album/album-new/album-new.component";
 import {PictureNewComponent} from "./components/picture/picture-new/picture-new.component";
 import {UserPicturesComponent} from "./components/picture/user-pictures/user-pictures.component";
+import {AlbumListComponent} from "./components/album/album-list/album-list.component";
 
 
 const APP_ROUTES: Routes = [
@@ -37,6 +38,7 @@ const APP_ROUTES: Routes = [
   {path: 'testListComponent', component: PostListComponent}, // these paths are temporary, will likely be renamed.
   {path: 'cb/:cbid', component: CelestialBodyComponent},
   {path: 'user/:uid/posts/new', component: CreatePostComponent},
+  {path: 'user/:uid/album', component: AlbumListComponent},
   {path: 'user/:uid/album/new', component: AlbumNewComponent},
   {path: 'user/:uid/album/:aid', component: UserAlbumComponent},
   {path: 'user/:uid/album/:aid/pic/new', component: PictureNewComponent},

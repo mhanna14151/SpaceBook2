@@ -11,7 +11,7 @@ export class UserAlbumComponent implements OnInit {
   userId: String;
   albumId: String;
   pictures = [];
-  album = {};
+  album: {};
   title: String;
   description: String;
 
@@ -24,8 +24,10 @@ export class UserAlbumComponent implements OnInit {
         this.userId = params['uid'];
         this.albumId = params['aid'];
       });
+    console.log(this.albumId);
     this.albumService.findAlbumById(this.albumId)
       .subscribe((album: any) => {
+      console.log(album);
         this.album = album;
         this.pictures = album['pictures'];
         this.title = album['title'];

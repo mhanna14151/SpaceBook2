@@ -35,6 +35,7 @@ import { PictureNewComponent } from './components/picture/picture-new/picture-ne
 import { AlbumNewComponent } from './components/album/album-new/album-new.component';
 import {PictureServiceClient} from "./services/picture.service.client";
 import {AlbumServiceClient} from "./services/album.service.client";
+import { AlbumListComponent } from './components/album/album-list/album-list.component';
 
 @NgModule({
   // Declare components here
@@ -62,6 +63,7 @@ import {AlbumServiceClient} from "./services/album.service.client";
     UserAlbumComponent,
     PictureNewComponent,
     AlbumNewComponent,
+    AlbumListComponent,
 
   ],
   imports: [

@@ -15,7 +15,7 @@ export class AlbumServiceClient {
   api = {
     'createAlbum': this.createAlbum,
     'findAlbumById': this.findAlbumById,
-    'findAlbumsByUser': this.findAlbumsByUser,
+    'findAllAlbumsByUser': this.findAllAlbumsByUser,
     'updateAlbum': this.updateAlbum,
     'deleteAlbum': this.deleteAlbum
   };
@@ -36,8 +36,8 @@ export class AlbumServiceClient {
       });
   }
 
-  findAlbumsByUser(userId: String) {
-    const url = this.baseURL + '/api/user/' + userId;
+  findAllAlbumsByUser(userId: String) {
+    const url = this.baseURL + '/api/user/' + userId + '/album';
     return this.http.get(url)
       .map((res: Response) => {
         return res.json();

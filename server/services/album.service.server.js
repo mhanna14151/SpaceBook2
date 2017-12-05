@@ -1,7 +1,7 @@
 module.exports = function (app) {
-  app.post('/api/user/:uid/album', createAlbum);
+  app.post('/api/user/:uid', createAlbum);
   app.get('/api/album/:aid', findAlbumById);
-  app.get('/api/user/:uid', findAllAlbumsByUser);
+  app.get('/api/user/:uid/album', findAllAlbumsByUser);
   app.put('/api/album/:aid', updateAlbum);
   app.delete('/api/album/:aid', deleteAlbum);
 
@@ -16,7 +16,7 @@ module.exports = function (app) {
       .createAlbum(newAlbum)
       .then(function (album) {
         albumModel
-          .findAlbumsByUser(userId)
+          .findAllAlbumsByUser(userId)
           .then(function (albums) {
             res.json(albums);
           });
@@ -25,9 +25,11 @@ module.exports = function (app) {
 
   function findAlbumById(req, res) {
     var albumId = req.params['aid'];
+    console.log('HELLO', albumId);
     albumModel
       .findAlbumById(albumId)
       .then(function (album) {
+        console.log('ALBUM BY ID ', album);
         res.json(album);
       });
   }

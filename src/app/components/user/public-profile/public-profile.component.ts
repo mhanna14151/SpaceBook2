@@ -25,7 +25,7 @@ export class PublicProfileComponent implements OnInit {
   today = new Date();
   birthdayMsg = 'Happy Birthday!';
   postsInPublicProfile: any[];
-  
+
   ngOnInit() {
     this.activatedRoute.params
       .subscribe(
@@ -97,6 +97,10 @@ export class PublicProfileComponent implements OnInit {
           });
       });
     console.log(this.follows);
+  }
+
+  goToAlbums() {
+    this.router.navigate(['user/' + this.userId + '/album']);
   }
 
 }

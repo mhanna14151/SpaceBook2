@@ -30,7 +30,7 @@ export class AlbumNewComponent implements OnInit {
     this.album = {uploaderId: this.userId, title: title, description: description, dateCreated: this.dateCreated};
     this.albumService.createAlbum(this.userId, this.album)
       .subscribe((album: any) => {
-        this.router.navigate(['user/' + this.userId ]); //@TODO possibly change this to route to a list of albums??
+        this.router.navigate(['user/' + this.userId + '/album']); //@TODO possibly change this to route to a list of albums??
       });
   }
 
