@@ -33,7 +33,7 @@ export class PictureServiceClient{
   }
 
   findPicturesByAlbum(albumId: String) {
-    const url = this.baseURL + '/api/album/' + albumId;
+    const url = this.baseURL + '/api/album/' + albumId + '/picture';
     return this.http.get(url)
       .map((res: Response) => {
         return res.json();

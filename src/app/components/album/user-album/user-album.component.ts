@@ -24,10 +24,8 @@ export class UserAlbumComponent implements OnInit {
         this.userId = params['uid'];
         this.albumId = params['aid'];
       });
-    console.log(this.albumId);
     this.albumService.findAlbumById(this.albumId)
       .subscribe((album: any) => {
-      console.log(album);
         this.album = album;
         this.pictures = album['pictures'];
         this.title = album['title'];
@@ -38,12 +36,20 @@ export class UserAlbumComponent implements OnInit {
   deleted(aid) {
     this.albumService.deleteAlbum(aid)
       .subscribe((status: any) => {
-        this.router.navigate(['user/' + this.userId]);
+        this.router.navigate(['user/' + this.userId + '/album']);
       });
   }
 
   goToPicture(picId) {
     this.router.navigate(['user/' + this.userId + '/album/' + this.albumId + '/pic/' + picId]);
+  }
+
+  addPicture() {
+    this.router.navigate(['user/' + this.userId + '/album/' + this.albumId + '/pic/new']);
+  }
+
+  goBackToAlbums() {
+    this.router.navigate(['user/' + this.userId + '/album']);
   }
 
   commit(title, description) {
@@ -60,6 +66,7 @@ export class UserAlbumComponent implements OnInit {
         this.pictures = album['pictures'];
         this.title = album['title'];
         this.description = album['description'];
+        this.goBackToAlbums();
       });
   }
 }

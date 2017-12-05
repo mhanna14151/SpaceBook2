@@ -21,7 +21,7 @@ export class AlbumServiceClient {
   };
 
   createAlbum(userId: String, album: any){
-    const url = this.baseURL + '/api/user/' + userId;
+    const url = this.baseURL + '/api/user/' + userId + '/album';
     return this.http.post(url, album)
       .map((res: Response) => {
         return res.json();

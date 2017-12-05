@@ -34,10 +34,6 @@ export class AlbumNewComponent implements OnInit {
       });
   }
 
-  addPicture() {
-    this.router.navigate(['user/' + this.userId + '/album/' + this.albumId + '/pic/new']);
-  }
-
   cancel() {
     this.router.navigate(['user/' + this.userId ]);
   }

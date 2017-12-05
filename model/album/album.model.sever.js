@@ -27,9 +27,9 @@ function createAlbum(album) {
 }
 
 function findAlbumById(albumId) {
+  console.log(albumId);
   return AlbumModel.findById(albumId);
 }
-console.log(AlbumModel.findAlbumById('5a26f552b378101d74267a1a').title);
 
 function findAllAlbumsByUser(userId) {
   return AlbumModel

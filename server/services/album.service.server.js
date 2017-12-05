@@ -1,5 +1,5 @@
 module.exports = function (app) {
-  app.post('/api/user/:uid', createAlbum);
+  app.post('/api/user/:uid/album', createAlbum);
   app.get('/api/album/:aid', findAlbumById);
   app.get('/api/user/:uid/album', findAllAlbumsByUser);
   app.put('/api/album/:aid', updateAlbum);
@@ -25,11 +25,9 @@ module.exports = function (app) {
 
   function findAlbumById(req, res) {
     var albumId = req.params['aid'];
-    console.log('HELLO', albumId);
     albumModel
       .findAlbumById(albumId)
       .then(function (album) {
-        console.log('ALBUM BY ID ', album);
         res.json(album);
       });
   }

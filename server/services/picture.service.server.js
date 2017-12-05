@@ -1,7 +1,7 @@
 module.exports = function (app) {
   app.post('/api/album/:aid/pic', createPicture);
   app.get('/api/pic/:picid', findPictureById);
-  app.get('/api/album/:aid', findPicturesByAlbum);
+  app.get('/api/album/:aid/picture', findPicturesByAlbum);
   app.put('/api/pic/:picid', updatePicture);
   app.delete('/api/pic/:picid', deletePicture);
 

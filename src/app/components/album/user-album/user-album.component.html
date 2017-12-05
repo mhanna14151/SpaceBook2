@@ -30,6 +30,9 @@
   <div *ngFor="let pic of pictures">
     <button (click)="goToPicture(pic._id)">{{pic}}</button>
   </div>
-  <button class="btn btn-block btn-primary jj-button-hover" (click)="commit(title, description)">Commit</button>
+  <button class="btn btn-block btn-success jj-button-hover" (click)="commit(title, description)">Commit</button>
   <button class="btn btn-block btn-danger jj-button-hover" aria-pressed="true" (click)="deleted(albumId)">Delete</button>
+  <button (click)="addPicture()" class="btn btn-info btn-block jj-button-hover"
+          aria-pressed="true">Add picture</button>
+  <button class="btn btn-block btn-primary jj-button-hover" aria-pressed="true" (click)="goBackToAlbums()">Cancel Changes</button>
 </form>
