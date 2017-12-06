@@ -17,9 +17,6 @@
 .settings/
 *.sublime-workspace
 
-#dist folder
-/dist
-
 # IDE - VSCode
 .vscode/*
 !.vscode/settings.json
@@ -43,4 +40,4 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
-'node_modules' 
+'node_modules'
