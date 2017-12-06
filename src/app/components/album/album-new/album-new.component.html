@@ -1,0 +1,36 @@
+<form>
+  <div class="form-group">
+    <label for="title">
+      Title
+    </label>
+    <input name="title"
+    id="title"
+    type="text"
+    placeholder="Planets"
+    class="form-control"
+    [(ngModel)]="title"
+    required/>
+    <!--<span class="help-block" *ngIf="title.touched && !title.valid" @TODO>-->
+      <!--Please enter an album title!-->
+    <!--</span>-->
+
+    <label for="description">
+      Description
+    </label>
+    <input [(ngModel)]="description"
+    id="description"
+    name="description"
+    placeholder="..."
+    class="form-control"
+    required/>
+    <!--<span class="help-block" *ngIf="description.touched && !description.valid" @TODO>-->
+      <!--Please enter an album description!-->
+    <!--</span>-->
+  </div>
+  <button (click)="commit(title, description)" class="btn btn-success btn-block jj-button-hover" aria-pressed="true">
+    Create
+  </button>
+  <button (click)="cancel()" class="btn btn-danger btn-block jj-button-hover" aria-pressed="true">
+    Cancel
+  </button>
+</form>

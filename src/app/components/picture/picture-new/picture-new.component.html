@@ -1,0 +1,64 @@
+<div>
+  <form>
+    <div class="form-group">
+      <label for="title">
+        Title
+      </label>
+      <input [(ngModel)]="title"
+        name="title"
+              id="title"
+      type="text"
+      placeholder="Pluto"
+      class="form-control"
+      required
+      />
+      <!--<span class="help-block" *ngIf="title.touched && !title.valid"@TODO>-->
+        <!--Please enter a picture title!-->
+      <!--</span>-->
+      <label for="text">
+        Text
+      </label>
+      <textarea
+        [(ngModel)]="text"
+        placeholder="Dwarf Planet"
+        rows="5"
+        name="text"
+        id="text"
+        class="form-control"
+        required></textarea>
+      <!--<span class="help-block" *ngIf="text.touched && !text.valid"@TODO>-->
+        <!--Please enter a description for this picture!-->
+      <!--</span>-->
+      <!--<label for="url">-->
+        <!--URL-->
+      <!--</label>-->
+      <!--<input [(ngModel)]="url"-->
+      <!--type="url"-->
+      <!--placeholder="URL"-->
+      <!--name="url"-->
+      <!--id="url"-->
+      <!--class="form-control"/>-->
+      <!--<label for="width">-->
+        <!--Width-->
+      <!--</label>-->
+      <!--<input-->
+        <!--[(ngModel)]="width"-->
+        <!--name="width"-->
+        <!--id="width"-->
+        <!--class="form-control"-->
+        <!--type="text"-->
+      <!--/>-->
+      <form ngNoForm action="{{baseURL}}/api/upload" method="post" enctype="multipart/form-data">
+        <input name="myFile" type="file" class="form-control"/>
+        <input name="pictureId" value="{{picId}}" style="display: none"/>
+        <input name="albumId" value="{{albumId}}" style="display: none"/>
+        <input name="userId" value="{{userId}}" style="display: none"/>
+        <button (click)="commit(text, title, width, url)" type="submit" class="btn btn-block btn-primary jj-button-hover"
+                aria-pressed="true">Upload Image</button>
+        <br/>
+      </form>
+      <button (click)="cancel()" class="btn btn-danger btn-block jj-button-hover"
+              aria-pressed="true">Cancel</button>
+    </div>
+  </form>
+</div>

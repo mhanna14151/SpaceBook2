@@ -28,6 +28,7 @@ export class PublicProfileComponent implements OnInit {
   postsInPublicProfile: any[];
   dataReady: boolean;
 
+
   ngOnInit() {
     this.dataReady = false;
     this.activatedRoute.params
@@ -128,6 +129,10 @@ export class PublicProfileComponent implements OnInit {
           });
       });
     console.log(this.follows);
+  }
+
+  goToAlbums() {
+    this.router.navigate(['user/' + this.objId + '/album']);
   }
 
 }

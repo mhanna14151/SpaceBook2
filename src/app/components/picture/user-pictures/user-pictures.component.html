@@ -1,0 +1,60 @@
+<div>
+  <form>
+    <div class="form-group">
+      <label for="title">
+        Title
+      </label>
+      <input [(ngModel)]="title"
+             name="title"
+             id="title"
+             type="text"
+             placeholder="Pluto"
+             class="form-control"
+             required
+      />
+      <!--<span class="help-block" *ngIf="title.touched && !title.valid"@TODO>-->
+        <!--Please enter a picture title!-->
+      <!--</span>-->
+      <label for="text">
+        Text
+      </label>
+      <textarea
+        [(ngModel)]="text"
+        placeholder="Dwarf Planet"
+        rows="5"
+        name="text"
+        id="text"
+        class="form-control"
+        required></textarea>
+      <!--<span class="help-block" *ngIf="text.touched && !text.valid"@TODO>-->
+        <!--Please enter a description for this picture!-->
+      <!--</span>-->
+      <!--<label for="url">-->
+        <!--URL-->
+      <!--</label>-->
+      <!--<input [(ngModel)]="url"-->
+             <!--type="url"-->
+             <!--placeholder="URL"-->
+             <!--name="url"-->
+             <!--id="url"-->
+             <!--class="form-control"/>-->
+      <!--<label for="width">-->
+        <!--Width-->
+      <!--</label>-->
+      <!--<input-->
+        <!--[(ngModel)]="width"-->
+        <!--name="width"-->
+        <!--id="width"-->
+        <!--class="form-control"-->
+        <!--type="text"-->
+      <!--/>-->
+      <button (click)="commit(picId, text, title, url, width)" aria-pressed="true" class="btn btn-success btn-block jj-button-hover">
+        Commit
+      </button>
+      <button (click)="goBackToAlbum()" class="btn btn-primary btn-block jj-button-hover"
+              aria-pressed="true">Cancel Changes</button>
+      <button (click)="deleted(picId)" class="btn btn-danger btn-block jj-button-hover"
+              aria-pressed="true">Delete</button>
+    </div>
+  </form>
+</div>

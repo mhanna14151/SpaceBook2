@@ -1,0 +1,11 @@
+<div class="container-fluid jj-body">
+<div *ngFor="let album of albums">
+  <button (click)="editAlbum(album._id)"> {{album.title}}</button>
+</div>
+<button class="btn btn-block btn-primary jj-button-hover"
+        aria-pressed="true" (click)="newAlbum()">
+  Create A New Album </button>
+<button class="btn btn-block btn-primary jj-button-hover"
+        aria-pressed="true" (click)="goBackToProfile()">
+  Back To Profile </button>
+</div>
