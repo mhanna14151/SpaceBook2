@@ -7,8 +7,8 @@
 <div>{{date}}</div>
 <div class = 'jj-font'> Current Altitude: {{likes}} kilometers
   <button class = "btn btn-primary" (click)="likeThisPost()">Give More Rocket Fuel</button></div>
-<!--<label>Tags</label>-->
-<!--<div *ngFor = "let tag of tags">-->
-  <!--<a>{{tag.name}}</a>-->
-<!--</div>-->
-<button class = "btn btn-danger" (click)="removeMyTag()">Remove My Tag</button>
+<label>Tags</label>
+<div *ngFor = "let tag of tags">
+  <a>{{tag.name}}</a>
+</div>
+<!--<button class = "btn btn-danger" (click)="removeMyTag()">Remove My Tag</button>-->

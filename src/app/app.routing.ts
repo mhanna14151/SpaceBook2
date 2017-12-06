@@ -24,13 +24,13 @@ import {AlbumListComponent} from "./components/album/album-list/album-list.compo
 
 const APP_ROUTES: Routes = [
   {path: 'register', component: RegisterComponent},
-  {path: 'user/:uid', component: PublicProfileComponent},
-  {path: 'user/:uid/edit', component: ProfileComponent},
+  {path: ':obtype/:uid', component: PublicProfileComponent},
+  {path: ':obtype/:uid/edit', component: ProfileComponent},
   {path: 'searchAsteroids', component: NasaTestComponent},
   {path: '', component: FrontPageComponent},
   {path: 'login', component: FrontPageComponent},
   {path: 'nasa-pic', component: NasaPictureTestComponent},
-  {path: 'user/:uid/search', component: SearchComponent},
+  {path: ':obtype/:uid/search', component: SearchComponent},
   {path: 'APOD', component: ApodComponent},
   {path: 'APOD/Archive', component: ApodarchiveComponent},
   {path: 'nasa-pic/:imgid/details', component: NasaPictureDetailsComponent},
@@ -42,7 +42,8 @@ const APP_ROUTES: Routes = [
   {path: 'user/:uid/album/new', component: AlbumNewComponent},
   {path: 'user/:uid/album/:aid', component: UserAlbumComponent},
   {path: 'user/:uid/album/:aid/pic/new', component: PictureNewComponent},
-  {path: 'user/:uid/album/:aid/pic/:picid', component: UserPicturesComponent}
+  {path: 'user/:uid/album/:aid/pic/:picid', component: UserPicturesComponent},
+  {path: ':obtype/:uid/posts/new', component: CreatePostComponent}
   // so on
 ];
 

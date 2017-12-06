@@ -75,10 +75,9 @@ export class CreatePostComponent implements OnInit {
     this.postService.createPost(newPost)
       .subscribe((posts) => {
       // this.posts = posts;
-        this.router.navigate([this.baseUrl + 'user/', this.posterId]);
+      //   this.router.navigate([this.baseUrl + 'user/', this.posterId]);
+        this.ngOnInit();
       });
-    // this.router.navigate(['user/', this.posterId]);
-
   }
 
 
