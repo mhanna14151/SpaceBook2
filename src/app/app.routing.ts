@@ -15,6 +15,11 @@ import {PublicProfileComponent} from './components/user/public-profile/public-pr
 import {CreatePostComponent} from './components/create-post/create-post.component';
 import {SearchComponent} from './components/search/search.component';
 import {CelestialBodyComponent} from "./components/celestial-body/celestial-body.component";
+import {UserAlbumComponent} from "./components/album/user-album/user-album.component";
+import {AlbumNewComponent} from "./components/album/album-new/album-new.component";
+import {PictureNewComponent} from "./components/picture/picture-new/picture-new.component";
+import {UserPicturesComponent} from "./components/picture/user-pictures/user-pictures.component";
+import {AlbumListComponent} from "./components/album/album-list/album-list.component";
 
 
 const APP_ROUTES: Routes = [
@@ -32,6 +37,12 @@ const APP_ROUTES: Routes = [
   {path: 'testPostComponent', component: PostComponent}, // these paths are temporary, will likely be renamed
   {path: 'testListComponent', component: PostListComponent}, // these paths are temporary, will likely be renamed.
   {path: 'cb/:cbid', component: CelestialBodyComponent},
+  {path: 'user/:uid/posts/new', component: CreatePostComponent},
+  {path: 'user/:uid/album', component: AlbumListComponent},
+  {path: 'user/:uid/album/new', component: AlbumNewComponent},
+  {path: 'user/:uid/album/:aid', component: UserAlbumComponent},
+  {path: 'user/:uid/album/:aid/pic/new', component: PictureNewComponent},
+  {path: 'user/:uid/album/:aid/pic/:picid', component: UserPicturesComponent},
   {path: ':obtype/:uid/posts/new', component: CreatePostComponent}
   // so on
 ];

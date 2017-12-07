@@ -1,0 +1,39 @@
+<form>
+  <div class="form-group">
+    <label for="title">
+      Title
+    </label>
+    <input name="title"
+           id="title"
+           type="text"
+           placeholder="Planets"
+           class="form-control"
+           [(ngModel)]="title"
+           required/>
+    <!--<span class="help-block" *ngIf="title.touched && !title.valid" @TODO>-->
+      <!--Please enter an album title!-->
+    <!--</span>-->
+
+    <label for="description">
+      Description
+    </label>
+    <input [(ngModel)]="description"
+           id="description"
+           name="description"
+           placeholder="..."
+           class="form-control"
+           required/>
+    <!--<span class="help-block" *ngIf="description.touched && !description.valid" @TODO>-->
+      <!--Please enter an album description!-->
+    <!--</span>-->
+  </div>
+  <div *ngFor="let pic of pictures">
+    <button (click)="goToPicture(pic)">{{pic}}</button>
+    <!--<img class="jj-content" src="{{pic.url}}"/@TODO>-->
+  </div>
+  <button class="btn btn-block btn-success jj-button-hover" (click)="commit(title, description)">Commit</button>
+  <button class="btn btn-block btn-danger jj-button-hover" aria-pressed="true" (click)="deleted(albumId)">Delete</button>
+  <button (click)="addPicture()" class="btn btn-info btn-block jj-button-hover"
+          aria-pressed="true">Add picture</button>
+  <button class="btn btn-block btn-primary jj-button-hover" aria-pressed="true" (click)="goBackToAlbums()">Cancel Changes</button>
+</form>

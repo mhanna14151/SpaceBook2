@@ -44,6 +44,11 @@
           (click)="search()">
     Search
   </button>
+  <button class="btn btn-primary btn-block jj-button-hover"
+          aria-pressed="true"
+          (click)="goToAlbums()">
+    Albums
+  </button>
   <div class = "container-fluid">
   <app-create-post></app-create-post>
 
@@ -52,5 +57,5 @@
 
 
 <!--<app-post-list [posts] = "postsInPublicProfile" (click)="ngOnInit()"></app-post-list>-->
-<app-post-list [posts] = "postsInPublicProfile" [IDfromProfile] = "userId"></app-post-list>
+<app-post-list [posts] = "postsInPublicProfile" [IDfromProfile] = "objId"></app-post-list>
 
