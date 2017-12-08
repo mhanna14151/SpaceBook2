@@ -9,10 +9,21 @@ const path = require('path');
 const http = require('http');
 const bodyParser = require('body-parser');
 const app = express();
+var cookieParser = require('cookie-parser');
+var session      = require('express-session');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cookieParser());
 
+// DON'T FORGET TO CHANGE THIS LATER!
+// app.use(session({ secret: process.env.SESSION_SECRET }));
+app.use(session({ secret: "stringSecret124" }));
+
+var passport = require('passport');
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 
 
@@ -23,11 +34,18 @@ app.use(express.static(path.join(__dirname, 'dist')));
 
 // CORS
 app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Origin", "http://localhost:4200");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+  res.header("Access-Control-Allow-Credentials", "true");
   next();
 });
+
+
+// load, and configure body parser module
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
 
 
 
@@ -52,11 +70,7 @@ app.get('*', function (req, res) {
 
 server.listen( port , () => console.log('Running'));
 
-// require("./server/app");
-// app.listen(port, ipaddress);
-//
-// //install, load, and configure body parser module
-// app.use(bodyParser.urlencoded({extended: true}));
-// app.use(bodyParser.json());
+
+
 
 
