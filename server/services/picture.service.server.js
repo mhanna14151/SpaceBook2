@@ -1,7 +1,7 @@
 module.exports = function (app) {
 
   var multer = require('multer');
-  var upload = multer({dest: __dirname + '/../../assets/uploads'});
+  var upload = multer({dest: __dirname + '/../../dist/assets/uploads'});
 
   app.post('/api/album/:aid/pic', createPicture);
   app.get('/api/pic/:picid', findPictureById);
@@ -87,10 +87,11 @@ module.exports = function (app) {
         pic1['width'] = width;
         pic1['size'] = size;
         pic1.save();
+        console.log('PICTURE', pic1);
         pictureModel
           .updatePicture(pictureId, pic1)
           .then(function (pic) {
-            var callbackUrl = '/user' + userId + '/album/' + albumId;
+            var callbackUrl = '/user/' + userId + '/album/' + albumId;
             res.redirect(callbackUrl);
           });
       });
